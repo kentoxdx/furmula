@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="th" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Beginner's Guide - คู่มือดู Formula 1 ฉบับมือใหม่</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Kanit & Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        f1red: '#E10600',
+                        f1dark: '#101015',
+                        f1card: '#181820',
+                        f1border: '#2a2a35'
+                    },
+                    fontFamily: {
+                        sans: ['Kanit', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0b0e;
+            color: #e4e4e7;
+            font-family: 'Kanit', sans-serif;
+        }
+        .carbon-pattern {
+            background-color: #101015;
+            background-image: radial-gradient(#22222e 1px, transparent 0);
+            background-size: 16px 16px;
+        }
+        .glow-red {
+            box-shadow: 0 0 25px rgba(225, 6, 0, 0.35);
+        }
+        .glow-red-sm {
+            box-shadow: 0 0 10px rgba(225, 6, 0, 0.25);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101015;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e10600;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="carbon-pattern min-h-screen flex flex-col selection:bg-f1red selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-f1dark/90 backdrop-blur-md border-b border-f1border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <span class="bg-f1red text-white font-black italic text-2xl px-3 py-1 rounded tracking-tighter shadow-lg">F1</span>
+                    <span class="font-bold text-lg md:text-xl text-white tracking-wide">BEGINNER'S <span class="text-f1red">GUIDE</span></span>
+                </div>
+                
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#car" class="hover:text-f1red transition-colors flex items-center gap-1.5"><i class="fa-solid fa-car-side"></i> รถ F1</a>
+                    <a href="#tyres" class="hover:text-f1red transition-colors flex items-center gap-1.5"><i class="fa-solid fa-compact-disc"></i> เรื่องยาง</a>
+                    <a href="#overtaking" class="hover:text-f1red transition-colors flex items-center gap-1.5"><i class="fa-solid fa-gauge-high"></i> การแซงปี 2026 & ธง</a>
+                    <a href="#teams" class="hover:text-f1red transition-colors flex items-center gap-1.5"><i class="fa-solid fa-flag-checkered"></i> ทีม & นักแข่ง</a>
+                    <a href="#weekend" class="hover:text-f1red transition-colors flex items-center gap-1.5"><i class="fa-solid fa-calendar-days"></i> ตารางสัปดาห์แข่ง</a>
+                    <a href="#donate" class="text-f1red font-bold hover:underline">โดเนท</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-zinc-300 hover:text-white p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-f1card border-b border-f1border px-4 pt-2 pb-4 space-y-2 text-sm">
+            <a href="#car" class="block py-2 text-zinc-300 hover:text-f1red"><i class="fa-solid fa-car-side w-6"></i> รถ F1 (Aerodynamics)</a>
+            <a href="#tyres" class="block py-2 text-zinc-300 hover:text-f1red"><i class="fa-solid fa-compact-disc w-6"></i> เรื่องยางและกลยุทธ์</a>
+            <a href="#overtaking" class="block py-2 text-zinc-300 hover:text-f1red"><i class="fa-solid fa-gauge-high w-6"></i> การแซงปี 2026 (Active Aero) & ธง</a>
+            <a href="#teams" class="block py-2 text-zinc-300 hover:text-f1red"><i class="fa-solid fa-flag-checkered w-6"></i> ทีมและนักแข่ง 2026</a>
+            <a href="#weekend" class="block py-2 text-zinc-300 hover:text-f1red"><i class="fa-solid fa-calendar-days w-6"></i> รูปแบบสัปดาห์การแข่งขัน</a>
+            <a href="#donate" class="block py-2 text-f1red font-bold"><i class="fa-solid fa-heart w-6"></i> โดเนท</a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative py-16 md:py-24 overflow-hidden border-b border-f1border">
+        <div class="absolute inset-0 bg-gradient-to-r from-f1red/20 via-transparent to-purple-900/10 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="inline-block px-3 py-1 rounded-full bg-f1red/20 border border-f1red/40 text-f1red text-xs font-semibold tracking-wider uppercase mb-4">
+                    <i class="fa-solid fa-bolt mr-1"></i> จุดเริ่มต้นสำหรับแฟน F1 หน้าใหม่ (อัปเดตกติกาปี 2026)
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6">
+                    ดู <span class="text-f1red italic">FORMULA 1</span> ให้สนุก<br class="hidden sm:inline"/> เข้าใจครบใน 5 นาที!
+                </h1>
+                <p class="text-zinc-400 text-base sm:text-lg mb-8 leading-relaxed">
+                    อยากเริ่มดู F1 แต่สงสัยว่าระบบแซงใหม่ปี 2026 ทำงานอย่างไร? ทำไมไม่มี DRS แล้ว? หรือต้องเปลี่ยนยางต่างสี? เว็บนี้รวมทุกเรื่องพื้นฐานให้คุณเข้าใจง่าย พร้อมเป็นเชียร์มาร์ชอย่างมั่นใจ!
+                </p>
+                
+                <!-- Quick Stats Badge Bar -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+                    <div class="bg-f1card p-4 rounded-xl border border-f1border">
+                        <div class="text-f1red font-black text-2xl">350+ km/h</div>
+                        <div class="text-xs text-zinc-400">ความเร็วสูงสุดในทางตรง</div>
+                    </div>
+                    <div class="bg-f1card p-4 rounded-xl border border-f1border">
+                        <div class="text-f1red font-black text-2xl">2.0 วิ</div>
+                        <div class="text-xs text-zinc-400">เวลาในการเปลี่ยนยาง (Pit Stop)</div>
+                    </div>
+                    <div class="bg-f1card p-4 rounded-xl border border-f1border">
+                        <div class="text-f1red font-black text-2xl">5G+</div>
+                        <div class="text-xs text-zinc-400">แรงจีที่นักแข่งได้รับในโค้ง</div>
+                    </div>
+                    <div class="bg-f1card p-4 rounded-xl border border-f1border">
+                        <div class="text-f1red font-black text-2xl">1,000+ HP</div>
+                        <div class="text-xs text-zinc-400">ขุมพลังเครื่องยนต์ Hybrid</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT CONTAINERS -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+
+        <!-- SECTION 1: THE F1 CAR -->
+        <section id="car" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-2 h-8 bg-f1red rounded-full"></div>
+                <h2 class="text-2xl sm:text-3xl font-bold">1. รถ Formula 1 มีองค์ประกอบอะไรบ้าง?</h2>
+            </div>
+            <p class="text-zinc-400 mb-8">
+                รถ F1 ไม่ใช่แค่รถเร็วธรรมดา แต่คือ "เครื่องบินเจ็ทกลับหัว" ที่เน้นแรงกด (Downforce) เพื่อสร้างการยึดเกาะในโค้งด้วยความเร็วสูง
+            </p>
+
+            <!-- Interactive Car Hotspot Explorer -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                
+                <!-- Visual Car Blueprint Component -->
+                <div class="lg:col-span-2 bg-f1card p-6 rounded-2xl border border-f1border relative overflow-hidden">
+                    <div class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">
+                        <i class="fa-solid fa-hand-pointer mr-1"></i> คลิกเลือกจุดบนตัวรถเพื่อดูรายละเอียด
+                    </div>
+
+                    <!-- Interactive 2026 F1 Car Model -->
+                    <div id="car-3d-scene" class="relative w-full aspect-[16/9] min-h-[250px] sm:min-h-[340px] bg-zinc-900/80 rounded-xl border border-zinc-800 overflow-hidden" role="group" aria-label="โมเดลรถ Formula 1 ปี 2026 เลือกชิ้นส่วนเพื่อซูมดูรายละเอียด">
+                        <div class="absolute left-3 top-3 z-10 text-[9px] sm:text-[10px] font-mono tracking-wider text-cyan-200/80 pointer-events-none">F1 // 2026  <span class="text-zinc-600">INTERACTIVE MODEL</span></div>
+                        <button type="button" onclick="resetCarView()" class="absolute right-3 top-3 z-20 rounded-md border border-zinc-700 bg-zinc-950/80 px-2.5 py-1.5 text-[10px] font-semibold text-zinc-300 hover:border-f1red hover:text-white transition" title="กลับไปดูรถทั้งคัน"><i class="fa-solid fa-expand mr-1"></i>ดูทั้งคัน</button>
+                        <div class="absolute bottom-3 left-3 z-10 flex items-center gap-1.5 text-[9px] font-mono text-zinc-500 pointer-events-none"><span class="w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#67e8f9]"></span> CLICK PART TO INSPECT</div>
+                        <div class="absolute bottom-3 right-3 z-10 text-[9px] font-mono text-zinc-600 pointer-events-none">POWER UNIT // V6 TURBO HYBRID</div>
+                        <div id="car-hotspots" class="absolute inset-0 z-10 pointer-events-none">
+                            <button type="button" data-car-part="front-wing" onclick="selectCarPart('front-wing')" class="car-part-btn absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-white/70 bg-f1red text-white font-bold flex items-center justify-center hover:scale-110 transition-transform glow-red-sm pointer-events-auto opacity-0" title="ปีกหน้า">1</button>
+                            <button type="button" data-car-part="halo" onclick="selectCarPart('halo')" class="car-part-btn absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-white/70 bg-f1red text-white font-bold flex items-center justify-center hover:scale-110 transition-transform glow-red-sm pointer-events-auto opacity-0" title="Halo">2</button>
+                            <button type="button" data-car-part="sidepod" onclick="selectCarPart('sidepod')" class="car-part-btn absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-white/70 bg-f1red text-white font-bold flex items-center justify-center hover:scale-110 transition-transform glow-red-sm pointer-events-auto opacity-0" title="ไซด์พอดและพื้นรถ">3</button>
+                            <button type="button" data-car-part="engine" onclick="selectCarPart('engine')" class="car-part-btn absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-white/70 bg-f1red text-white font-bold flex items-center justify-center hover:scale-110 transition-transform glow-red-sm pointer-events-auto opacity-0" title="ขุมพลัง">4</button>
+                            <button type="button" data-car-part="rear-wing" onclick="selectCarPart('rear-wing')" class="car-part-btn absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-white/70 bg-f1red text-white font-bold flex items-center justify-center hover:scale-110 transition-transform glow-red-sm pointer-events-auto opacity-0" title="ปีกหลังแบบ Active Aero">5</button>
+                        </div>
+                        <div id="car-model-status" class="absolute inset-x-0 bottom-12 z-20 mx-auto w-fit rounded-lg bg-zinc-950/90 px-3 py-2 text-xs text-zinc-300 border border-zinc-700">กำลังโหลดโมเดลรถ 3D...</div>
+                    </div>
+
+                    <!-- Quick buttons under blueprint -->
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <button onclick="selectCarPart('front-wing')" class="px-3 py-1.5 rounded-lg bg-zinc-800 text-xs hover:bg-f1red hover:text-white transition">1. ปีกหน้า (Front Wing)</button>
+                        <button onclick="selectCarPart('halo')" class="px-3 py-1.5 rounded-lg bg-zinc-800 text-xs hover:bg-f1red hover:text-white transition">2. ระบบ Halo</button>
+                        <button onclick="selectCarPart('sidepod')" class="px-3 py-1.5 rounded-lg bg-zinc-800 text-xs hover:bg-f1red hover:text-white transition">3. ไซด์พอด & พื้นรถ</button>
+                        <button onclick="selectCarPart('engine')" class="px-3 py-1.5 rounded-lg bg-zinc-800 text-xs hover:bg-f1red hover:text-white transition">4. เครื่องยนต์ Hybrid</button>
+                        <button onclick="selectCarPart('rear-wing')" class="px-3 py-1.5 rounded-lg bg-zinc-800 text-xs hover:bg-f1red hover:text-white transition">5. ปีกหลังแบบ Active Aero</button>
+                    </div>
+                </div>
+
+                <!-- Info Card Side Box -->
+                <div id="car-part-info" class="bg-f1card p-6 rounded-2xl border border-f1border flex flex-col justify-between h-full min-h-[300px]">
+                    <div>
+                        <div class="inline-block px-2.5 py-1 rounded bg-f1red/20 text-f1red text-xs font-bold mb-3" id="part-tag">
+                            จุดที่ 1
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white" id="part-title">ปีกหน้า (Front Wing)</h3>
+                        <p class="text-zinc-300 text-sm leading-relaxed mb-4" id="part-desc">
+                            ทำหน้าที่จัดการกระแสลมส่วนแรกที่เข้ามากระทบรถ โดยผลักอากาศออกด้านข้าง และสร้างแรงกด (Downforce) ล้อหน้า ช่วยให้รถสามารถเลี้ยวเข้าโค้งด้วยความเร็วสูงโดยไม่ไถล
+                        </p>
+                    </div>
+                    <div class="p-3 bg-zinc-900/60 rounded-xl border border-zinc-800 text-xs text-zinc-400" id="part-fact">
+                        <i class="fa-solid fa-lightbulb text-amber-400 mr-1"></i> <strong>เกร็ดน่ารู้:</strong> หากปีกหน้าเสียหายแค่ชิ้นส่วนเล็กๆ ความเร็วในโค้งอาจตกไปมากกว่า 1-2 วินาทีต่อรอบ!
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: TYRES & STRATEGY -->
+        <section id="tyres" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-2 h-8 bg-f1red rounded-full"></div>
+                <h2 class="text-2xl sm:text-3xl font-bold">2. เรื่องยางและกลยุทธ์ (Pirelli Tyres)</h2>
+            </div>
+            <p class="text-zinc-400 mb-8">
+                ยางคือหัวใจหลักของกลยุทธ์ F1 ยางที่ยึดเกาะดีจะหมดสภาพไว ในขณะที่ยางที่ทนทานจะทำความเร็วได้ช้ากว่า ทุกทีมต้องใช้ยางอย่างน้อย 2 ชนิดที่แตกต่างกันในวันแข่งเรซจริง
+            </p>
+
+            <!-- Compound Selector Tabs -->
+            <div class="bg-f1card rounded-2xl p-6 border border-f1border">
+                <div class="flex flex-wrap gap-2 mb-8 justify-center sm:justify-start">
+                    <button onclick="switchTyre('soft')" id="btn-tyre-soft" class="tyre-tab px-4 py-2 rounded-xl text-sm font-bold bg-red-600 text-white shadow-lg flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-white inline-block"></span> Soft (สีแดง)
+                    </button>
+                    <button onclick="switchTyre('medium')" id="btn-tyre-medium" class="tyre-tab px-4 py-2 rounded-xl text-sm font-bold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span> Medium (สีเหลือง)
+                    </button>
+                    <button onclick="switchTyre('hard')" id="btn-tyre-hard" class="tyre-tab px-4 py-2 rounded-xl text-sm font-bold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-white inline-block"></span> Hard (สีขาว)
+                    </button>
+                    <button onclick="switchTyre('inter')" id="btn-tyre-inter" class="tyre-tab px-4 py-2 rounded-xl text-sm font-bold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span> Intermediate (สีเขียว)
+                    </button>
+                    <button onclick="switchTyre('wet')" id="btn-tyre-wet" class="tyre-tab px-4 py-2 rounded-xl text-sm font-bold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-blue-500 inline-block"></span> Wet (สีน้ำเงิน)
+                    </button>
+                </div>
+
+                <!-- Tyre Details Display -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <!-- Visual Tyre Wheel graphic -->
+                    <div class="flex flex-col items-center justify-center p-6 bg-zinc-900 rounded-xl border border-zinc-800">
+                        <div id="tyre-graphic" class="w-44 h-44 flex items-center justify-center shadow-2xl transition-all duration-300">
+                            <img id="tyre-image" src="img/tires/soft.png" alt="Soft compound tyre" class="w-full h-full object-contain">
+                        </div>
+                        <span id="tyre-name-display" class="mt-4 text-xl font-bold text-red-500">SOFT COMPOUND</span>
+                    </div>
+
+                    <!-- Stats & Performance Bars -->
+                    <div class="space-y-4 md:col-span-2">
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span>ความเร็ว & การยึดเกาะ (Grip/Speed)</span>
+                                <span id="tyre-grip-val" class="text-f1red font-bold">10 / 10</span>
+                            </div>
+                            <div class="w-full bg-zinc-800 h-3 rounded-full overflow-hidden">
+                                <div id="tyre-grip-bar" class="bg-red-600 h-full rounded-full transition-all duration-500" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-1">
+                                <span>ความทนทาน (Durability)</span>
+                                <span id="tyre-dur-val" class="text-f1red font-bold">3 / 10</span>
+                            </div>
+                            <div class="w-full bg-zinc-800 h-3 rounded-full overflow-hidden">
+                                <div id="tyre-dur-bar" class="bg-red-600 h-full rounded-full transition-all duration-500" style="width: 30%"></div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <h4 class="font-bold text-white mb-1">ลักษณะและโอกาสที่ใช้:</h4>
+                            <p id="tyre-description" class="text-zinc-300 text-sm leading-relaxed">
+                                ยางสปอนจ์นิ่ม ยึดเกาะสูงที่สุด ทำเวลาต่อรอบได้เร็วที่สุด แต่หมดสภาพไว มักใช้ในช่วงรอบคัดเลือก (Qualifying) หรือช่วงท้ายเกมที่ต้องการไล่แซง
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: OVERTAKING IN 2026 & RULES -->
+        <section id="overtaking" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-2 h-8 bg-f1red rounded-full"></div>
+                <h2 class="text-2xl sm:text-3xl font-bold">3. การแซงยุคใหม่ปี 2026 (Active Aero & Overtake Mode)</h2>
+            </div>
+
+            <!-- 2026 Overtaking System Card -->
+            <div class="bg-f1card p-6 rounded-2xl border border-f1border mb-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Left: Explanations -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <span class="px-2.5 py-1 bg-f1red text-white text-xs font-black rounded uppercase tracking-wider">
+                            <i class="fa-solid fa-bolt mr-1"></i> กติกาใหม่ล่าสุด (ยกเลิก DRS)
+                        </span>
+                        <h3 class="text-2xl font-bold text-white">ระบบแซงแบบใหม่ไม่มี DRS อีกต่อไป!</h3>
+                        <p class="text-zinc-300 text-sm leading-relaxed">
+                            ตั้งแต่นี้เป็นต้นไป F1 ได้ยกเลิกปีกหลัง DRS แบบเดิม แล้วเปลี่ยนมาใช้ระบบ **แอโรไดนามิกแบบเปิด-ปิดได้ (Active Aero)** ร่วมกับ **โหมดเร่งพลังไฟฟ้าไล่แซง (Overtake Mode / Manual Override Mode)**
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <!-- Feature 1: Active Aero -->
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800">
+                                <h4 class="font-bold text-amber-400 text-sm mb-1 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-wind"></i> 1. Active Aerodynamics
+                                </h4>
+                                <p class="text-xs text-zinc-400 leading-relaxed">
+                                    ปีกหน้าและปีกหลังจะปรับองศาพร้อมกัน รถทุกคันใช้ได้ตามจุดที่กำหนดในทางตรง (X-Mode) เพื่อลดแรงต้านอากาศ โดยไม่ต้องรอตามหลังใคร
+                                </p>
+                            </div>
+
+                            <!-- Feature 2: Overtake Mode (MOM) -->
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800">
+                                <h4 class="font-bold text-f1red text-sm mb-1 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-charging-station"></i> 2. Overtake Mode (MOM)
+                                </h4>
+                                <p class="text-xs text-zinc-400 leading-relaxed">
+                                    หมอนรองระบบช่วยแซงใหม่! หากตามหลังคันหน้าไม่เกิน <strong>1.0 วินาที</strong> จะได้รับพลังงานไฟฟ้าพิเศษพุ่งฉีดเต็ม <strong>350 kW</strong> ในทางตรงเพื่อฉีดแซง
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Technical Spec Callout -->
+                        <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-800 text-xs space-y-1.5 text-zinc-400">
+                            <div class="font-bold text-white text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-microchip text-f1red"></i> กลไกการสร้างความต่างความเร็ว (Power Delta)
+                            </div>
+                            <p>• <strong>รถคันนำ (Lead Car):</strong> เมื่อความเร็วเกิน 290 กม./ชม. พลังงานไฟฟ้าจะค่อยๆ ลดลง (Derating) จนหมดที่ 355 กม./ชม.</p>
+                            <p>• <strong>รถคันตาม (Pursuing Car):</strong> เมื่อกด Overtake Mode จะปลดล็อกมอเตอร์ไฟฟ้าเต็มกำลัง 350 kW ยาวไปถึง 337+ กม./ชม. เกิดพลังต่างมหาศาลพุ่งแซงได้ทันที!</p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Interactive Visual Simulation -->
+                    <div class="lg:col-span-5 bg-zinc-950 p-6 rounded-xl border border-zinc-800 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="text-xs text-zinc-400 font-semibold mb-3 text-center">
+                                <i class="fa-solid fa-sliders text-f1red mr-1"></i> โหมดการทำงานรถ F1 ปี 2026
+                            </div>
+
+                            <!-- Mode Selectors -->
+                            <div class="grid grid-cols-3 gap-1.5 mb-6 bg-zinc-900 p-1.5 rounded-xl border border-zinc-800 text-xs">
+                                <button onclick="set2026Mode('corner')" id="mode-btn-corner" class="mode-tab py-2 px-1 rounded-lg font-bold bg-f1red text-white transition text-center shadow-md">
+                                    Corner<br><span class="text-[10px] opacity-80 font-normal">Z-Mode</span>
+                                </button>
+                                <button onclick="set2026Mode('straight')" id="mode-btn-straight" class="mode-tab py-2 px-1 rounded-lg font-bold bg-transparent text-zinc-400 hover:text-white transition text-center">
+                                    Straight<br><span class="text-[10px] opacity-80 font-normal">X-Mode</span>
+                                </button>
+                                <button onclick="set2026Mode('overtake')" id="mode-btn-overtake" class="mode-tab py-2 px-1 rounded-lg font-bold bg-transparent text-zinc-400 hover:text-white transition text-center">
+                                    Overtake<br><span class="text-[10px] opacity-80 font-normal">MOM Boost</span>
+                                </button>
+                            </div>
+
+                            <!-- Visual Display Box -->
+                            <div class="relative bg-zinc-900/90 rounded-xl border border-zinc-800 p-4 text-center">
+                                <div class="text-[11px] font-mono text-amber-400 font-bold mb-2 uppercase tracking-widest" id="mode-status-title">
+                                    Z-MODE : CORNERING ( HIGH DOWNFORCE )
+                                </div>
+
+                                <!-- 3D Active Aero and Airflow Scene -->
+                                <div id="aero-scene" class="relative w-full h-56 sm:h-64 rounded-lg border border-zinc-800 overflow-hidden mb-4 isolate" style="background: radial-gradient(ellipse at 50% 56%, #17212b 0%, #090b10 68%);" role="img" aria-label="ภาพจำลองรถ Formula 1 แบบสามมิติพร้อมกระแสลม">
+                                    <div class="absolute left-3 top-3 z-10 flex items-center gap-2 text-[8px] sm:text-[10px] font-mono tracking-wider text-cyan-200/80 pointer-events-none">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#67e8f9]"></span>
+                                        ACTIVE AERO <span class="text-zinc-600">/</span> WIND TUNNEL
+                                    </div>
+                                    <div class="absolute right-3 top-3 z-10 text-[8px] font-mono text-zinc-500 pointer-events-none">F1 // 26</div>
+                                    <div id="aero-model-status" class="absolute inset-0 z-[6] flex items-center justify-center text-[10px] font-mono text-cyan-200/80 pointer-events-none">LOADING CAR MODEL...</div>
+                                    <div id="boost-flames" class="absolute inset-0 z-[5] bg-gradient-to-r from-transparent via-amber-500/10 to-f1red/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 z-10 flex justify-between items-end text-[9px] font-mono tracking-wider pointer-events-none">
+                                        <span class="text-zinc-500">AIRFLOW <span class="text-cyan-300">● LIVE</span></span>
+                                        <span id="airflow-speed" class="text-cyan-200">LOW LOAD</span>
+                                    </div>
+                                </div>
+
+                                <!-- Energy Boost Gauge -->
+                                <div class="space-y-1.5 text-left text-xs">
+                                    <div class="flex justify-between font-semibold">
+                                        <span>กำลังไฟฟ้ามอเตอร์ (Electric Boost):</span>
+                                        <span id="power-output-text" class="text-amber-400 font-bold">120 kW (Standard Coast)</span>
+                                    </div>
+                                    <div class="w-full bg-zinc-800 h-2.5 rounded-full overflow-hidden">
+                                        <div id="power-output-bar" class="bg-zinc-400 h-full rounded-full transition-all duration-500" style="width: 35%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Explanation text box for mode -->
+                        <div class="mt-4 p-3 bg-zinc-900 rounded-lg border border-zinc-800 text-xs text-zinc-300 leading-relaxed" id="mode-desc-text">
+                            <strong>Corner Mode (Z-Mode):</strong> Front Flap อยู่ตำแหน่งปกติของโมเดล และ Rear Top Flap ปิดช่องลม เพื่อคงแรงกดและการยึดเกาะขณะเข้าโค้ง
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Flags Meaning Grid -->
+            <h3 class="text-xl font-bold text-white mb-4">ความหมายของธงและสัญญาณในการแข่งขัน F1 ปี 2026</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                
+                <div class="bg-f1card p-4 rounded-xl border border-f1border text-center">
+                    <div class="w-12 h-12 bg-yellow-400 rounded-lg mx-auto mb-2 shadow"></div>
+                    <h4 class="font-bold text-sm text-yellow-400">ธงเหลือง (Yellow)</h4>
+                    <p class="text-xs text-zinc-400 mt-1">มีอันตรายข้างหน้า ต้องชะลอความเร็วและห้ามแซง</p>
+                </div>
+
+                <div class="bg-f1card p-4 rounded-xl border border-f1border text-center">
+                    <div class="w-12 h-12 bg-red-600 rounded-lg mx-auto mb-2 shadow"></div>
+                    <h4 class="font-bold text-sm text-red-500">ธงแดง (Red)</h4>
+                    <p class="text-xs text-zinc-400 mt-1">หยุดเซสชันทันที เมื่อสนามมีอันตรายที่แข่งต่อไม่ได้อย่างปลอดภัย</p>
+                </div>
+
+                <div class="bg-f1card p-4 rounded-xl border border-f1border text-center">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg mx-auto mb-2 shadow"></div>
+                    <h4 class="font-bold text-sm text-emerald-400">ธงเขียว (Green)</h4>
+                    <p class="text-xs text-zinc-400 mt-1">สิ้นสุดช่วงเตือนภัย กลับมาแข่งต่อได้เมื่อพ้นเขตอันตราย</p>
+                </div>
+
+                <div class="bg-f1card p-4 rounded-xl border border-f1border text-center">
+                    <div class="w-12 h-12 bg-blue-500 rounded-lg mx-auto mb-2 shadow"></div>
+                    <h4 class="font-bold text-sm text-blue-400">ธงฟ้า (Blue)</h4>
+                    <p class="text-xs text-zinc-400 mt-1">มีรถเร็วกว่าเข้ามาใกล้ หรือกำลังจะน็อครอบ ให้เปิดทางตามกติกา</p>
+                </div>
+
+                <div class="bg-f1card p-4 rounded-xl border border-f1border text-center">
+                    <div class="w-12 h-12 bg-zinc-900 border-2 border-white rounded-lg mx-auto mb-2 flex items-center justify-center font-bold text-xs">SC</div>
+                    <h4 class="font-bold text-sm text-white">Safety Car</h4>
+                    <p class="text-xs text-zinc-400 mt-1">รถ Safety Car นำขบวน รถต้องเว้นระยะและห้ามแซง เว้นแต่ได้รับอนุญาต</p>
+                </div>
+
+                <div class="bg-f1card p-4 rounded-xl border border-f1border text-center">
+                    <div class="w-12 h-12 rounded-lg mx-auto mb-2 bg-[radial-gradient(#fff_50%,#000_50%)] bg-[length:12px_12px] border border-zinc-700"></div>
+                    <h4 class="font-bold text-sm text-zinc-200">ธงตราหมากรุก</h4>
+                    <p class="text-xs text-zinc-400 mt-1">สิ้นสุดการแข่งขันหรือเซสชัน (Chequered Flag)</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4: TEAMS & DRIVERS -->
+        <section id="teams" class="scroll-mt-24">
+            <div class="flex items-center justify-between mb-6 flex-wrap gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-2 h-8 bg-f1red rounded-full"></div>
+                    <h2 class="text-2xl sm:text-3xl font-bold">4. ทีมแข่งและนักแข่งหลัก ปี 2026</h2>
+                </div>
+                <!-- Search input for teams -->
+                <input type="text" id="team-search" onkeyup="filterTeams()" placeholder="ค้นหาทีมหรือนักแข่ง..." class="bg-f1card border border-f1border px-4 py-2 rounded-xl text-sm focus:outline-none focus:border-f1red text-white w-full sm:w-64">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="teams-grid">
+                
+                <!-- Red Bull Racing -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-blue-600 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: RED BULL FORD</span>
+                            <h3 class="text-xl font-bold text-white">Red Bull Racing</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-blue-700 ring-2 ring-yellow-400"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Max_Verstappen" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Max Verstappen</a> <img src="https://flagcdn.com/w40/nl.png" alt="ธงชาติเนเธอร์แลนด์" title="เนเธอร์แลนด์" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#3</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Isack_Hadjar" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Isack Hadjar</a> <img src="https://flagcdn.com/w40/fr.png" alt="ธงชาติฝรั่งเศส" title="ฝรั่งเศส" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ferrari -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-red-600 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: FERRARI</span>
+                            <h3 class="text-xl font-bold text-white">Scuderia Ferrari</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-red-600 ring-2 ring-yellow-400"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Charles_Leclerc" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Charles Leclerc</a> <img src="https://flagcdn.com/w40/mc.png" alt="ธงชาติโมนาโก" title="โมนาโก" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#16</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Lewis_Hamilton" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Lewis Hamilton</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#44</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- McLaren -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-orange-500 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
+                            <h3 class="text-xl font-bold text-white">McLaren F1 Team</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-orange-500 ring-2 ring-zinc-900"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Lando_Norris" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Lando Norris</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#1</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Oscar_Piastri" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Oscar Piastri</a> <img src="https://flagcdn.com/w40/au.png" alt="ธงชาติออสเตรเลีย" title="ออสเตรเลีย" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#81</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mercedes -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-emerald-400 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
+                            <h3 class="text-xl font-bold text-white">Mercedes-AMG F1</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-teal-400 ring-2 ring-zinc-200"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/George_Russell_(racing_driver)" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">George Russell</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#63</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Andrea_Kimi_Antonelli" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Kimi Antonelli</a> <img src="https://flagcdn.com/w40/it.png" alt="ธงชาติอิตาลี" title="อิตาลี" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aston Martin -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-emerald-700 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: HONDA</span>
+                            <h3 class="text-xl font-bold text-white">Aston Martin Aramco</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-emerald-800 ring-2 ring-lime-400"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Fernando_Alonso" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Fernando Alonso</a> <img src="https://flagcdn.com/w40/es.png" alt="ธงชาติสเปน" title="สเปน" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#14</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Lance_Stroll" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Lance Stroll</a> <img src="https://flagcdn.com/w40/ca.png" alt="ธงชาติแคนาดา" title="แคนาดา" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#18</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Williams -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-blue-400 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
+                            <h3 class="text-xl font-bold text-white">Williams Racing</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-blue-500 ring-2 ring-cyan-300"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Alexander_Albon" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Alexander Albon</a> <img src="https://flagcdn.com/w40/th.png" alt="ธงชาติไทย" title="ไทย" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#23</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Carlos_Sainz_Jr." target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Carlos Sainz</a> <img src="https://flagcdn.com/w40/es.png" alt="ธงชาติสเปน" title="สเปน" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#55</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Racing Bulls -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-sky-400 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: RED BULL FORD</span>
+                            <h3 class="text-xl font-bold text-white">Racing Bulls</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-sky-400 ring-2 ring-zinc-200"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Liam_Lawson" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Liam Lawson</a> <img src="https://flagcdn.com/w40/nz.png" alt="ธงชาตินิวซีแลนด์" title="นิวซีแลนด์" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#30</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Arvid_Lindblad" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Arvid Lindblad</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#41</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Haas -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-red-500 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: FERRARI</span>
+                            <h3 class="text-xl font-bold text-white">Haas F1 Team</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-zinc-200 ring-2 ring-red-500"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Esteban_Ocon" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Esteban Ocon</a> <img src="https://flagcdn.com/w40/fr.png" alt="ธงชาติฝรั่งเศส" title="ฝรั่งเศส" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#31</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Oliver_Bearman" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Oliver Bearman</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#87</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alpine -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-pink-400 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
+                            <h3 class="text-xl font-bold text-white">BWT Alpine F1 Team</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-pink-400 ring-2 ring-blue-400"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Pierre_Gasly" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Pierre Gasly</a> <img src="https://flagcdn.com/w40/fr.png" alt="ธงชาติฝรั่งเศส" title="ฝรั่งเศส" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#10</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Franco_Colapinto" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Franco Colapinto</a> <img src="https://flagcdn.com/w40/ar.png" alt="ธงชาติอาร์เจนตินา" title="อาร์เจนตินา" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#43</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audi -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-red-400 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: AUDI</span>
+                            <h3 class="text-xl font-bold text-white">Audi Revolut F1 Team</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-red-500 ring-2 ring-zinc-300"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Nico_H%C3%BClkenberg" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Nico Hülkenberg</a> <img src="https://flagcdn.com/w40/de.png" alt="ธงชาติเยอรมนี" title="เยอรมนี" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#27</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Gabriel_Bortoleto" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Gabriel Bortoleto</a> <img src="https://flagcdn.com/w40/br.png" alt="ธงชาติบราซิล" title="บราซิล" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cadillac -->
+                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-blue-300 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: FERRARI</span>
+                            <h3 class="text-xl font-bold text-white">Cadillac Formula 1 Team</h3>
+                        </div>
+                        <span class="w-4 h-4 rounded-full bg-blue-300 ring-2 ring-zinc-200"></span>
+                    </div>
+                    <div class="space-y-2 text-sm text-zinc-300">
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Sergio_P%C3%A9rez" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Sergio Pérez</a> <img src="https://flagcdn.com/w40/mx.png" alt="ธงชาติเม็กซิโก" title="เม็กซิโก" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#11</span>
+                        </div>
+                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Valtteri_Bottas" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Valtteri Bottas</a> <img src="https://flagcdn.com/w40/fi.png" alt="ธงชาติฟินแลนด์" title="ฟินแลนด์" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#77</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 5: GRAND PRIX WEEKEND FORMAT -->
+        <section id="weekend" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-2 h-8 bg-f1red rounded-full"></div>
+                <h2 class="text-2xl sm:text-3xl font-bold">5. ลำดับเหตุการณ์ใน 1 สัปดาห์แข่ง (Grand Prix)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Friday -->
+                <div class="bg-f1card rounded-2xl border border-f1border p-6">
+                    <div class="text-f1red font-bold text-sm uppercase mb-1">วันศุกร์ (Friday)</div>
+                    <h3 class="text-xl font-bold text-white mb-4">Free Practice (FP1 & FP2)</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        ซ้อมรอบอิสระ ทีมแข่งจะทดสอบเซ็ตอัพรถ ลองวิ่งจำลองระยะสั้น (Qualifying Simulation) และทดสอบยางในระยะยาว (Race Trim)
+                    </p>
+                </div>
+
+                <!-- Saturday -->
+                <div class="bg-f1card rounded-2xl border border-f1border p-6 relative overflow-hidden">
+                    <div class="text-amber-400 font-bold text-sm uppercase mb-1">วันเสาร์ (Saturday)</div>
+                    <h3 class="text-xl font-bold text-white mb-4">Qualifying (คัดเลือกหา Pole Position)</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-3">
+                        แบ่งเป็น 3 ช่วงเพื่อคัดคนช้าออก (Q1, Q2, Q3) คันที่ทำเวลาต่อรอบเร็วที่สุดใน Q3 จะได้ออกสตาร์ทตำแหน่งแรก (Pole Position) ในวันอาทิตย์
+                    </p>
+                </div>
+
+                <!-- Sunday -->
+                <div class="bg-f1card rounded-2xl border-2 border-f1red p-6 glow-red-sm relative">
+                    <span class="absolute top-4 right-4 bg-f1red text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Main Event</span>
+                    <div class="text-f1red font-bold text-sm uppercase mb-1">วันอาทิตย์ (Sunday)</div>
+                    <h3 class="text-xl font-bold text-white mb-4">Race Day (แข่งจริง)</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        ดวลความเร็วระยะทางรวมประมาณ 300 กิโลเมตร (ประมาณ 1.5 - 2 ชั่วโมง) พร้อมการเข้า Pit Stop เปลี่ยนยาง ผู้ชนะ 10 อันดับแรกจะได้รับคะแนนสะสม
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: DONATION -->
+        <section id="donate" class="scroll-mt-24">
+            <div class="bg-f1card rounded-2xl border border-f1border p-6 sm:p-8">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                    <div class="max-w-xl">
+                        <span class="inline-flex items-center gap-2 text-f1red text-sm font-bold uppercase">
+                            <i class="fa-solid fa-heart"></i> Support this guide
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2">โดเนทสนับสนุนเว็บไซต์</h2>
+                        <p class="text-zinc-400 text-sm mt-2 leading-relaxed">ขอบคุณที่ช่วยสนับสนุนการทำคู่มือ F1 ภาษาไทย</p>
+                    </div>
+                    <div class="w-full sm:w-auto sm:min-w-[320px] bg-zinc-950 border border-zinc-800 rounded-xl p-5">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-green-700/20 text-green-400 flex items-center justify-center text-lg font-black">K</div>
+                            <div>
+                                <div class="text-white font-bold">ธนาคารกสิกรไทย</div>
+                                <div class="text-xs text-zinc-500">Kasikornbank</div>
+                            </div>
+                        </div>
+                        <dl class="space-y-3 text-sm">
+                            <div class="flex justify-between gap-4 border-t border-zinc-800 pt-3">
+                                <dt class="text-zinc-500 shrink-0">ชื่อบัญชี</dt>
+                                <dd class="text-zinc-200 text-right">นาย วรเมธ เวียงยิ่ง</dd>
+                            </div>
+                            <div class="flex justify-between gap-4 border-t border-zinc-800 pt-3">
+                                <dt class="text-zinc-500 shrink-0">เลขบัญชี</dt>
+                                <dd class="text-zinc-200 font-mono text-right">146-3-47918-2</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-f1dark border-t border-f1border py-8 text-center text-xs text-zinc-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2">F1 Beginner's Guide - เว็บไซต์คู่มือแนะนำ Formula 1 สำหรับแฟนชาวไทย</p>
+            <p> Formula 1, F1, FORMULA ONE, FIA and related marks are trademarks of Formula One Licensing B.V.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 1. CAR PARTS DATA & INTERACTIVITY
+        const carPartsData = {
+            'front-wing': {
+                tag: 'จุดที่ 1',
+                title: 'ปีกหน้า (Front Wing)',
+                desc: 'ทำหน้าที่จัดการกระแสลมส่วนแรกที่เข้ามากระทบรถ โดยผลักอากาศออกด้านข้าง และสร้างแรงกด (Downforce) ล้อหน้า ช่วยให้รถสามารถเลี้ยวเข้าโค้งด้วยความเร็วสูงโดยไม่ไถล',
+                fact: 'หากปีกหน้าเสียหายแค่ชิ้นส่วนเล็กๆ ความเร็วในโค้งอาจตกไปมากกว่า 1-2 วินาทีต่อรอบ!'
+            },
+            'halo': {
+                tag: 'จุดที่ 2',
+                title: 'โครงเซฟตี้ Halo',
+                desc: 'อุปกรณ์ความปลอดภัยทำจากไทเทเนียม น้ำหนักเพียง 9 กก. แต่สามารถรับน้ำหนักได้ถึง 12 ตัน (เทียบเท่ารถเมล์สองชั้น 2 คัน) ออกแบบมาเพื่อปกป้องศีรษะของนักแข่งจากเศษชิ้นส่วนหรือรถคันอื่น',
+                fact: 'ตอนเปิดตัวครั้งแรกในปี 2018 หลายคนบอกว่าไม่สวย แต่ปัจจุบันได้รับการยอมรับว่าช่วยชีวิตนักแข่งไว้มากมายแล้ว!'
+            },
+            'sidepod': {
+                tag: 'จุดที่ 3',
+                title: 'ช่องดักลมข้างลำตัว & พื้นรถ (Sidepod & Floor)',
+                desc: 'ช่องข้างลำตัวช่วยดักอากาศเข้าไประบายความร้อนให้เครื่องยนต์ ส่วนพื้นใต้ท้องรถ (Floor) ใช้ปรากฏการณ์ Ground Effect ช่วยดูดตัวรถให้ติดกับพื้นถนน',
+                fact: 'แรงกด 60% ของรถ F1 ยุคปัจจุบันถูกสร้างขึ้นมาจาก "พื้นใต้ท้องรถ" ไม่ใช่ปีก!'
+            },
+            'engine': {
+                tag: 'จุดที่ 4',
+                title: 'ขุมพลัง V6 Turbo Hybrid (Power Unit)',
+                desc: 'ขุมพลัง V6 เทอร์โบ 1.6 ลิตรทำงานร่วมกับระบบไฮบริด โดยปี 2026 เพิ่มกำลังมอเตอร์ MGU-K และนำ MGU-H ออก ใช้พลังงานไฟฟ้าจากแบตเตอรี่เพื่อเสริมกำลังขับ',
+                fact: 'กติกาปี 2026 เพิ่มสัดส่วนกำลังจากระบบไฟฟ้าอย่างมาก และใช้เชื้อเพลิงยั่งยืนขั้นสูง (Advanced Sustainable Fuel)'
+            },
+            'rear-wing': {
+                tag: 'จุดที่ 5',
+                title: 'ปีกหลังแบบ Active Aerodynamics',
+                desc: 'สร้างแรงกดให้ล้อหลังยึดเกาะในโค้ง และปรับองศาปีกเป็นโหมดแรงต้านต่ำบนทางตรงร่วมกับปีกหน้า รถปี 2026 ใช้ Active Aero แทนระบบ DRS แบบเดิม',
+                fact: 'โหมดทางตรง (X-Mode) ใช้ได้ตามบริเวณที่กำหนด ส่วนโหมดเข้าโค้งจะคืนปีกสู่การสร้างแรงกดสูง'
+            }
+        };
+
+        function selectCarPart(key) {
+            const part = carPartsData[key];
+            if (!part) return;
+
+            document.getElementById('part-tag').innerText = part.tag;
+            document.getElementById('part-title').innerText = part.title;
+            document.getElementById('part-desc').innerText = part.desc;
+            document.getElementById('part-fact').innerHTML = `<i class="fa-solid fa-lightbulb text-amber-400 mr-1"></i> <strong>เกร็ดน่ารู้:</strong> ${part.fact}`;
+            document.querySelectorAll('.car-part-btn').forEach(button => {
+                button.classList.toggle('ring-2', button.dataset.carPart === key);
+                button.classList.toggle('ring-white', button.dataset.carPart === key);
+                button.classList.toggle('scale-110', button.dataset.carPart === key);
+            });
+            if (window.focusCarPart) window.focusCarPart(key);
+        }
+
+        function resetCarView() {
+            document.querySelectorAll('.car-part-btn').forEach(button => {
+                button.classList.remove('ring-2', 'ring-white', 'scale-110');
+            });
+            if (window.focusCarPart) window.focusCarPart(null);
+        }
+
+        // 2. TYRES INTERACTIVITY
+        const tyreData = {
+            soft: {
+                name: 'SOFT COMPOUND ( C3 / C4 / C5 )',
+                image: 'img/tires/soft.png',
+                colorClass: 'border-red-600',
+                textColorClass: 'text-red-500',
+                barColorClass: 'bg-red-600',
+                gripText: '10 / 10',
+                gripWidth: '100%',
+                durText: '3 / 10',
+                durWidth: '30%',
+                desc: 'ยางสปอนจ์นิ่ม ยึดเกาะสูงที่สุด ทำเวลาต่อรอบได้เร็วที่สุด แต่หมดสภาพไว มักใช้ในช่วงรอบคัดเลือก (Qualifying) หรือช่วงท้ายเกมที่ต้องการไล่แซง'
+            },
+            medium: {
+                name: 'MEDIUM COMPOUND',
+                image: 'img/tires/Medium.png',
+                colorClass: 'border-yellow-400',
+                textColorClass: 'text-yellow-400',
+                barColorClass: 'bg-yellow-400',
+                gripText: '7 / 10',
+                gripWidth: '70%',
+                durText: '6 / 10',
+                durWidth: '60%',
+                desc: 'ยางสมดุล มีการยึดเกาะและความทนทานในระดับปานกลาง เป็นยางยอดนิยมที่ใช้เริ่มต้นในวันแข่งจริง (Race Day) เพราะยืดหยุ่นต่อกลยุทธ์'
+            },
+            hard: {
+                name: 'HARD COMPOUND',
+                image: 'img/tires/Hard.png',
+                colorClass: 'border-white',
+                textColorClass: 'text-zinc-200',
+                barColorClass: 'bg-zinc-200',
+                gripText: '5 / 10',
+                gripWidth: '50%',
+                durText: '9 / 10',
+                durWidth: '90%',
+                desc: 'ยางเนื้อแข็ง ยึดเกาะน้อยที่สุด ทำเวลาต่อรอบช้ากว่ายางนิ่ม แต่ทนทานสูงมาก สามารถวิ่งได้หลายรอบโดยไม่ต้องเข้า Pit Stop บ่อย'
+            },
+            inter: {
+                name: 'INTERMEDIATE COMPOUND',
+                image: 'img/tires/Intermediate.png',
+                colorClass: 'border-green-500',
+                textColorClass: 'text-green-400',
+                barColorClass: 'bg-green-500',
+                gripText: 'ฝนตกเบา / แทร็กเปียกหมาด',
+                gripWidth: '65%',
+                durText: 'ปรับตามความเปียก',
+                durWidth: '70%',
+                desc: 'ยางสำหรับสภาพอากาศแปรปรวน มีดอกยางช่วยรีดน้ำได้ประมาณ 30 ลิตร/วินาที ที่ความเร็ว 300 กม./ชม. ใช้เมื่อแทร็กเริ่มเปียกแต่ยังไม่มีน้ำขัง'
+            },
+            wet: {
+                name: 'FULL WET COMPOUND',
+                image: 'img/tires/WET.png',
+                colorClass: 'border-blue-500',
+                textColorClass: 'text-blue-400',
+                barColorClass: 'bg-blue-500',
+                gripText: 'ฝนตกหนัก / น้ำขังบนแทร็ก',
+                gripWidth: '40%',
+                durText: 'ทนทานต่อการเหินน้ำ',
+                durWidth: '85%',
+                desc: 'ยางสำหรับฝนตกหนัก รีดน้ำได้มากถึง 85 ลิตร/วินาที ป้องกันปรากฏการณ์เหินน้ำ (Aquaplaning) ช่วยให้นักแข่งยังควบคุมรถได้ในสภาวะสุดวิสัย'
+            }
+        };
+
+        function switchTyre(type) {
+            const data = tyreData[type];
+            if (!data) return;
+
+            // Update Tabs
+            ['soft', 'medium', 'hard', 'inter', 'wet'].forEach(t => {
+                const btn = document.getElementById(`btn-tyre-${t}`);
+                if (btn) {
+                    if (t === type) {
+                        btn.className = 'tyre-tab px-4 py-2 rounded-xl text-sm font-bold bg-f1red text-white shadow-lg flex items-center gap-2';
+                    } else {
+                        btn.className = 'tyre-tab px-4 py-2 rounded-xl text-sm font-bold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 flex items-center gap-2';
+                    }
+                }
+            });
+
+            // Update Graphic
+            const graphic = document.getElementById('tyre-graphic');
+            if (graphic) graphic.className = `w-44 h-44 flex items-center justify-center shadow-2xl transition-all duration-300`;
+            const tyreImage = document.getElementById('tyre-image');
+            if (tyreImage) {
+                tyreImage.src = data.image;
+                tyreImage.alt = `${data.name} tyre`;
+            }
+
+            // Display Name
+            const nameDisp = document.getElementById('tyre-name-display');
+            if (nameDisp) {
+                nameDisp.innerText = data.name;
+                nameDisp.className = `mt-4 text-xl font-bold ${data.textColorClass}`;
+            }
+
+            // Grip Bar
+            const gripVal = document.getElementById('tyre-grip-val');
+            if (gripVal) gripVal.innerText = data.gripText;
+            const gripBar = document.getElementById('tyre-grip-bar');
+            if (gripBar) {
+                gripBar.style.width = data.gripWidth;
+                gripBar.className = `${data.barColorClass} h-full rounded-full transition-all duration-500`;
+            }
+
+            // Durability Bar
+            const durVal = document.getElementById('tyre-dur-val');
+            if (durVal) durVal.innerText = data.durText;
+            const durBar = document.getElementById('tyre-dur-bar');
+            if (durBar) {
+                durBar.style.width = data.durWidth;
+                durBar.className = `${data.barColorClass} h-full rounded-full transition-all duration-500`;
+            }
+
+            // Description
+            const desc = document.getElementById('tyre-description');
+            if (desc) desc.innerText = data.desc;
+        }
+
+        // 3. 2026 OVERTAKING & ACTIVE AERO SIMULATOR
+        const mode2026Data = {
+            corner: {
+                title: 'Z-MODE : CORNERING ( HIGH DOWNFORCE )',
+                powerText: '120 kW (Standard Coast)',
+                powerWidth: '35%',
+                barColor: 'bg-zinc-400',
+                desc: '<strong>Corner Mode (Z-Mode):</strong> Front Flap อยู่ตำแหน่งปกติของโมเดล และ Rear Top Flap ปิดช่องลม เพื่อคงแรงกดและการยึดเกาะขณะเข้าโค้ง',
+                boostGlow: false
+            },
+            straight: {
+                title: 'X-MODE : STRAIGHT ( LOW DRAG )',
+                powerText: '290 kW (Standard Derating)',
+                powerWidth: '70%',
+                barColor: 'bg-amber-400',
+                desc: '<strong>Straight Mode (X-Mode):</strong> เปิดช่องที่ Front Flap ตามเดิม พร้อมยก Rear Top Flap ขึ้นให้เกิดช่องลมระหว่างแผ่นปีก เพื่อลดแรงต้านบนทางตรง',
+                boostGlow: false
+            },
+            overtake: {
+                title: 'OVERTAKE MODE : MANUAL OVERRIDE ( MOM 350kW )',
+                powerText: '350 kW (FULL ELECTRIC BOOST!)',
+                powerWidth: '100%',
+                barColor: 'bg-f1red',
+                desc: '<strong>Overtake Mode (MOM):</strong> คง Active Aero แบบ X-Mode พร้อมปลดปล่อยพลังงานไฟฟ้า 350 kW เมื่อตามหลังไม่เกิน 1.0 วินาที เพื่อช่วยเร่งแซง',
+                boostGlow: true
+            }
+        };
+
+        function set2026Mode(mode) {
+            const data = mode2026Data[mode];
+            if (!data) return;
+
+            // Update Tabs
+            ['corner', 'straight', 'overtake'].forEach(m => {
+                const btn = document.getElementById(`mode-btn-${m}`);
+                if (m === mode) {
+                    btn.className = 'mode-tab py-2 px-1 rounded-lg font-bold bg-f1red text-white transition text-center shadow-md';
+                } else {
+                    btn.className = 'mode-tab py-2 px-1 rounded-lg font-bold bg-transparent text-zinc-400 hover:text-white transition text-center';
+                }
+            });
+
+            // Update Visuals
+            document.getElementById('mode-status-title').innerText = data.title;
+            document.getElementById('power-output-text').innerText = data.powerText;
+            
+            const pBar = document.getElementById('power-output-bar');
+            pBar.style.width = data.powerWidth;
+            pBar.className = `${data.barColor} h-full rounded-full transition-all duration-500`;
+
+            document.getElementById('mode-desc-text').innerHTML = data.desc;
+            window.current2026Mode = mode;
+            if (window.setAeroVisualizationMode) window.setAeroVisualizationMode(mode);
+
+            const boostGlow = document.getElementById('boost-flames');
+            if (data.boostGlow) {
+                boostGlow.classList.remove('opacity-0');
+                boostGlow.classList.add('opacity-100');
+            } else {
+                boostGlow.classList.remove('opacity-100');
+                boostGlow.classList.add('opacity-0');
+            }
+        }
+
+        // 4. TEAM FILTER
+        function filterTeams() {
+            const query = document.getElementById('team-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.team-card');
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+    </script>
+    <script type="module">
+        const aeroHost = document.getElementById('aero-scene');
+
+        if (aeroHost) {
+            try {
+                const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js');
+                const { GLTFLoader } = await import('https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/loaders/GLTFLoader.js');
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 60);
+                camera.position.set(5.2, 3.0, 6.5);
+                camera.lookAt(0, 0.55, 0);
+
+                const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+                renderer.outputColorSpace = THREE.SRGBColorSpace;
+                renderer.toneMapping = THREE.ACESFilmicToneMapping;
+                renderer.toneMappingExposure = 1.15;
+                renderer.setClearColor(0x080b10, 0);
+                renderer.domElement.setAttribute('aria-hidden', 'true');
+                Object.assign(renderer.domElement.style, { position: 'absolute', inset: '0', width: '100%', height: '100%' });
+                aeroHost.prepend(renderer.domElement);
+
+                scene.add(new THREE.HemisphereLight(0xb9e5ff, 0x15151b, 2.1));
+                const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
+                keyLight.position.set(3, 7, 5);
+                scene.add(keyLight);
+                const rimLight = new THREE.PointLight(0x28c8ff, 16, 12);
+                rimLight.position.set(-3, 2.6, -2.5);
+                scene.add(rimLight);
+                const redLight = new THREE.PointLight(0xe10600, 8, 8);
+                redLight.position.set(2, 1.6, 3);
+                scene.add(redLight);
+
+                const floor = new THREE.Mesh(
+                    new THREE.PlaneGeometry(18, 12),
+                    new THREE.MeshStandardMaterial({ color: 0x0b1118, metalness: 0.25, roughness: 0.9 })
+                );
+                floor.rotation.x = -Math.PI / 2;
+                floor.position.y = 0.015;
+                scene.add(floor);
+                const grid = new THREE.GridHelper(16, 32, 0x1a4251, 0x14232d);
+                grid.position.y = 0.025;
+                grid.material.transparent = true;
+                grid.material.opacity = 0.24;
+                scene.add(grid);
+
+                const car = new THREE.Group();
+                scene.add(car);
+                const aeroModelRoot = new THREE.Group();
+                scene.add(aeroModelRoot);
+                const redPaint = new THREE.MeshStandardMaterial({ color: 0xc91e27, metalness: 0.52, roughness: 0.3 });
+                const brightRed = new THREE.MeshStandardMaterial({ color: 0xf12b31, metalness: 0.38, roughness: 0.28, emissive: 0x3b0508 });
+                const carbon = new THREE.MeshStandardMaterial({ color: 0x171a20, metalness: 0.62, roughness: 0.32 });
+                const trim = new THREE.MeshStandardMaterial({ color: 0x89939b, metalness: 0.82, roughness: 0.24 });
+                const rubber = new THREE.MeshStandardMaterial({ color: 0x090a0c, roughness: 0.92 });
+
+                const bodyShape = new THREE.Shape();
+                bodyShape.moveTo(-2.02, 0.39);
+                bodyShape.lineTo(-1.76, 0.46);
+                bodyShape.lineTo(-1.34, 0.57);
+                bodyShape.lineTo(-1.02, 0.83);
+                bodyShape.lineTo(-0.35, 0.89);
+                bodyShape.lineTo(0.32, 0.75);
+                bodyShape.lineTo(0.82, 0.64);
+                bodyShape.lineTo(1.52, 0.55);
+                bodyShape.lineTo(2.12, 0.46);
+                bodyShape.lineTo(2.08, 0.37);
+                bodyShape.lineTo(-2.02, 0.37);
+                bodyShape.closePath();
+                const bodyGeometry = new THREE.ExtrudeGeometry(bodyShape, {
+                    depth: 0.76,
+                    bevelEnabled: true,
+                    bevelSegments: 2,
+                    bevelSize: 0.035,
+                    bevelThickness: 0.035
+                });
+                bodyGeometry.translate(0, 0, -0.38);
+                car.add(new THREE.Mesh(bodyGeometry, redPaint));
+
+                const floorBody = new THREE.Mesh(new THREE.BoxGeometry(3.7, 0.11, 1.18), carbon);
+                floorBody.position.set(-0.02, 0.38, 0);
+                car.add(floorBody);
+
+                for (const side of [-1, 1]) {
+                    const sidepod = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.29, 0.36), redPaint);
+                    sidepod.position.set(-0.02, 0.61, side * 0.47);
+                    car.add(sidepod);
+                    const sideStripe = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.025, 0.018), trim);
+                    sideStripe.position.set(-0.24, 0.65, side * 0.66);
+                    car.add(sideStripe);
+                }
+
+                const nose = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.29, 1.16, 7), redPaint);
+                nose.rotation.z = -Math.PI / 2;
+                nose.position.set(1.58, 0.59, 0);
+                car.add(nose);
+
+                const cockpit = new THREE.Mesh(new THREE.BoxGeometry(0.78, 0.16, 0.43), carbon);
+                cockpit.position.set(0.22, 0.91, 0);
+                car.add(cockpit);
+                const helmet = new THREE.Mesh(
+                    new THREE.SphereGeometry(0.16, 20, 14),
+                    new THREE.MeshStandardMaterial({ color: 0xffc928, metalness: 0.18, roughness: 0.28, emissive: 0x442800 })
+                );
+                helmet.scale.set(1, 1.12, 0.88);
+                helmet.position.set(0.31, 1.08, 0);
+                car.add(helmet);
+                const visor = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.055, 0.26), carbon);
+                visor.position.set(0.44, 1.09, 0);
+                car.add(visor);
+
+                const haloCurve = new THREE.CatmullRomCurve3([
+                    new THREE.Vector3(-0.08, 0.96, -0.28),
+                    new THREE.Vector3(-0.05, 1.34, -0.23),
+                    new THREE.Vector3(0.34, 1.44, 0),
+                    new THREE.Vector3(-0.05, 1.34, 0.23),
+                    new THREE.Vector3(-0.08, 0.96, 0.28)
+                ]);
+                car.add(new THREE.Mesh(new THREE.TubeGeometry(haloCurve, 36, 0.025, 8, false), trim));
+
+                const fin = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.36, 0.035), redPaint);
+                fin.position.set(-0.95, 0.92, 0);
+                car.add(fin);
+
+                const powerUnitBlock = new THREE.Mesh(new THREE.BoxGeometry(0.92, 0.3, 0.52), carbon);
+                powerUnitBlock.position.set(-0.53, 0.72, 0);
+                car.add(powerUnitBlock);
+                const batteryPack = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.17, 0.4), new THREE.MeshStandardMaterial({ color: 0x2e6d77, metalness: 0.65, roughness: 0.35, emissive: 0x062329 }));
+                batteryPack.position.set(-0.28, 0.9, 0);
+                car.add(batteryPack);
+                const airIntake = new THREE.Mesh(new THREE.TorusGeometry(0.21, 0.045, 8, 18), carbon);
+                airIntake.position.set(-0.96, 0.96, 0);
+                airIntake.rotation.y = Math.PI / 2;
+                car.add(airIntake);
+
+                const wheelGroups = [];
+                for (const x of [-1.22, 1.08]) {
+                    for (const side of [-1, 1]) {
+                        const wheelGroup = new THREE.Group();
+                        wheelGroup.position.set(x, 0.34, side * 0.63);
+                        wheelGroup.rotation.x = Math.PI / 2;
+                        const tire = new THREE.Mesh(new THREE.CylinderGeometry(0.335, 0.335, 0.23, 28), rubber);
+                        wheelGroup.add(tire);
+                        const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.145, 0.145, 0.245, 24), trim);
+                        wheelGroup.add(hub);
+                        const hubCap = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.25, 20), carbon);
+                        wheelGroup.add(hubCap);
+                        car.add(wheelGroup);
+                        wheelGroups.push(wheelGroup);
+                    }
+                }
+
+                const makeWing = (x, y, rear) => {
+                    const wing = new THREE.Group();
+                    wing.position.set(x, y, 0);
+                    car.add(wing);
+                    const span = rear ? 1.43 : 1.56;
+                    const mainPlane = new THREE.Mesh(new THREE.BoxGeometry(rear ? 0.48 : 0.62, 0.075, span), carbon);
+                    wing.add(mainPlane);
+                    const flapPivot = new THREE.Group();
+                    flapPivot.position.set(rear ? 0.16 : -0.08, 0.055, 0);
+                    wing.add(flapPivot);
+                    const flap = new THREE.Mesh(new THREE.BoxGeometry(rear ? 0.31 : 0.34, 0.045, span * 0.91), brightRed);
+                    flap.position.x = rear ? 0.13 : 0.11;
+                    flapPivot.add(flap);
+                    for (const side of [-1, 1]) {
+                        const endplate = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.22, 0.035), brightRed);
+                        endplate.position.set(0, -0.07, side * span * 0.49);
+                        wing.add(endplate);
+                    }
+                    return flapPivot;
+                };
+                makeWing(2.02, 0.47, false);
+                makeWing(-1.83, 0.77, true);
+
+                const flowGroup = new THREE.Group();
+                scene.add(flowGroup);
+                const flowTracks = [];
+                const particleGeometry = new THREE.SphereGeometry(0.033, 10, 8);
+                let flowSpeed = 0.16;
+                let aeroFlowBounds = null;
+                const wingAnimationSets = [];
+                let currentWingMode = 'corner';
+                const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const boostCore = new THREE.Mesh(
+                    new THREE.SphereGeometry(0.28, 16, 12),
+                    new THREE.MeshBasicMaterial({ color: 0xff5b27, transparent: true, opacity: 0.62 })
+                );
+                boostCore.position.set(-2.12, 0.56, 0);
+                boostCore.scale.set(1.9, 0.42, 0.5);
+                boostCore.visible = false;
+                aeroModelRoot.add(boostCore);
+
+                const setWingAnimationMode = (mode) => {
+                    const shouldOpen = mode !== 'corner';
+                    currentWingMode = mode;
+                    for (const { mixer, actions } of wingAnimationSets) {
+                        for (const action of actions) {
+                            const duration = action.getClip().duration;
+                            if (reduceMotion) {
+                                action.stop();
+                                if (shouldOpen) {
+                                    action.reset();
+                                    action.play();
+                                    action.time = duration;
+                                    mixer.update(0);
+                                    action.paused = true;
+                                } else {
+                                    mixer.update(0);
+                                }
+                                continue;
+                            }
+
+                            if (shouldOpen) {
+                                if (action.time >= duration - 0.001) continue;
+                                action.enabled = true;
+                                action.paused = false;
+                                action.clampWhenFinished = true;
+                                action.setEffectiveTimeScale(1);
+                                if (!action.isRunning()) action.play();
+                            } else {
+                                if (action.time <= 0.001) continue;
+                                action.enabled = true;
+                                action.paused = false;
+                                action.clampWhenFinished = false;
+                                action.setEffectiveTimeScale(-1);
+                                if (!action.isRunning()) action.play();
+                            }
+                        }
+                    }
+                };
+
+                const carHost = document.getElementById('car-3d-scene');
+                const carScene = new THREE.Scene();
+                const carCamera = new THREE.PerspectiveCamera(31, 1, 0.1, 60);
+                const carRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
+                carRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+                carRenderer.outputColorSpace = THREE.SRGBColorSpace;
+                carRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+                carRenderer.toneMappingExposure = 1.2;
+                carRenderer.setClearColor(0x080b10, 0);
+                carRenderer.domElement.setAttribute('aria-hidden', 'true');
+                Object.assign(carRenderer.domElement.style, { position: 'absolute', inset: '0', width: '100%', height: '100%', cursor: 'grab' });
+                carHost.prepend(carRenderer.domElement);
+
+                carScene.add(new THREE.HemisphereLight(0xc9ecff, 0x10131b, 2.3));
+                const carKeyLight = new THREE.DirectionalLight(0xffffff, 3.4);
+                carKeyLight.position.set(3, 7, 5);
+                carScene.add(carKeyLight);
+                const carRimLight = new THREE.PointLight(0x24cfff, 22, 14);
+                carRimLight.position.set(-2.5, 2.8, -2.2);
+                carScene.add(carRimLight);
+                const carFillLight = new THREE.PointLight(0xf0222b, 10, 10);
+                carFillLight.position.set(2.2, 1.8, 3.5);
+                carScene.add(carFillLight);
+
+                const displayFloor = new THREE.Mesh(
+                    new THREE.PlaneGeometry(30, 22),
+                    new THREE.MeshStandardMaterial({ color: 0x0a0d13, metalness: 0.18, roughness: 0.85 })
+                );
+                displayFloor.rotation.x = -Math.PI / 2;
+                displayFloor.position.y = 0.02;
+                carScene.add(displayFloor);
+                const carGrid = new THREE.GridHelper(18, 36, 0x214152, 0x172632);
+                carGrid.position.y = 0.035;
+                carGrid.material.transparent = true;
+                carGrid.material.opacity = 0.32;
+                carScene.add(carGrid);
+
+                const displayCar = new THREE.Group();
+                displayCar.rotation.y = -0.08;
+                carScene.add(displayCar);
+                const displayParts = {};
+                displayParts.model = displayCar;
+
+                const partViews = {
+                    'front-wing': { target: new THREE.Vector3(2.0, 0.52, 0), offset: new THREE.Vector3(1.45, 0.88, 2.65) },
+                    halo: { target: new THREE.Vector3(0.15, 1.16, 0), offset: new THREE.Vector3(1.25, 1.05, 2.8) },
+                    sidepod: { target: new THREE.Vector3(-0.05, 0.58, 0.46), offset: new THREE.Vector3(1.35, 0.82, 2.9) },
+                    engine: { target: new THREE.Vector3(-0.55, 0.78, 0), offset: new THREE.Vector3(1.15, 0.92, 2.7) },
+                    'rear-wing': { target: new THREE.Vector3(-1.82, 0.88, 0), offset: new THREE.Vector3(1.25, 0.92, 2.75) }
+                };
+                const hotspotAnchors = {
+                    'front-wing': new THREE.Vector3(2.22, 0.52, 0),
+                    halo: new THREE.Vector3(0.15, 1.5, 0),
+                    sidepod: new THREE.Vector3(-0.02, 0.62, 0.83),
+                    engine: new THREE.Vector3(-0.57, 0.95, 0.16),
+                    'rear-wing': new THREE.Vector3(-1.83, 1.12, 0)
+                };
+                const modelStatus = document.getElementById('car-model-status');
+                const loader = new GLTFLoader();
+                loader.load(
+                    './3D%20model/carv2.glb',
+                    (gltf) => {
+                        const model = gltf.scene;
+                        let bounds = new THREE.Box3().setFromObject(model);
+                        let size = bounds.getSize(new THREE.Vector3());
+                        if (size.z > size.x) model.rotation.y = Math.PI / 2;
+                        bounds.setFromObject(model);
+                        size = bounds.getSize(new THREE.Vector3());
+                        const modelScale = 4.4 / Math.max(size.x, size.y, size.z);
+                        model.scale.setScalar(modelScale);
+                        model.updateMatrixWorld(true);
+                        bounds.setFromObject(model);
+                        const center = bounds.getCenter(new THREE.Vector3());
+                        model.position.set(-center.x, -bounds.min.y + 0.04, -center.z);
+                        model.updateMatrixWorld(true);
+
+                        const aeroModel = model.clone(true);
+                        aeroModelRoot.add(aeroModel);
+                        displayCar.add(model);
+                        car.visible = false;
+                        const createWingAnimationSet = (root) => {
+                            const mixer = new THREE.AnimationMixer(root);
+                            const actions = gltf.animations.map((clip) => {
+                                const action = mixer.clipAction(clip);
+                                action.setLoop(THREE.LoopOnce, 1);
+                                return action;
+                            });
+                            return { mixer, actions };
+                        };
+                        wingAnimationSets.push(createWingAnimationSet(aeroModel));
+                        wingAnimationSets.push(createWingAnimationSet(model));
+                        const aeroBounds = new THREE.Box3().setFromObject(aeroModel);
+                        const aeroSize = aeroBounds.getSize(new THREE.Vector3());
+                        const aeroLength = aeroSize.x;
+                        const aeroHeight = aeroSize.y;
+                        const aeroSpan = aeroSize.z;
+                        aeroFlowBounds = { min: aeroBounds.min.clone(), max: aeroBounds.max.clone(), size: aeroSize.clone() };
+                        boostCore.position.set(aeroBounds.min.x - aeroLength * 0.035, aeroBounds.min.y + aeroHeight * 0.4, 0);
+                        boostCore.scale.set(aeroLength * 0.1, aeroHeight * 0.045, aeroSpan * 0.055);
+                        const aeroModelStatus = document.getElementById('aero-model-status');
+                        if (aeroModelStatus) aeroModelStatus.remove();
+                        window.setAeroVisualizationMode?.(window.current2026Mode || 'corner');
+
+                        bounds = new THREE.Box3().setFromObject(displayCar);
+                        size = bounds.getSize(new THREE.Vector3());
+                        const min = bounds.min;
+                        const length = size.x;
+                        const height = size.y;
+                        const width = size.z;
+                        const point = (x, y, z = 0) => new THREE.Vector3(x, y, z);
+                        hotspotAnchors['front-wing'].copy(point(bounds.max.x - length * 0.035, min.y + height * 0.16));
+                        hotspotAnchors.halo.copy(point(length * 0.09, min.y + height * 0.88));
+                        hotspotAnchors.sidepod.copy(point(-length * 0.06, min.y + height * 0.32, width * 0.37));
+                        hotspotAnchors.engine.copy(point(-length * 0.2, min.y + height * 0.57));
+                        hotspotAnchors['rear-wing'].copy(point(bounds.min.x + length * 0.045, min.y + height * 0.66));
+
+                        partViews['front-wing'].target.copy(hotspotAnchors['front-wing']);
+                        partViews['front-wing'].offset.set(length * 0.28, height * 0.58, length * 0.55);
+                        partViews.halo.target.copy(hotspotAnchors.halo);
+                        partViews.halo.offset.set(length * 0.23, height * 0.55, length * 0.55);
+                        partViews.sidepod.target.copy(hotspotAnchors.sidepod);
+                        partViews.sidepod.offset.set(length * 0.25, height * 0.46, length * 0.58);
+                        partViews.engine.target.copy(hotspotAnchors.engine);
+                        partViews.engine.offset.set(length * 0.22, height * 0.55, length * 0.55);
+                        partViews['rear-wing'].target.copy(hotspotAnchors['rear-wing']);
+                        partViews['rear-wing'].offset.set(length * 0.24, height * 0.55, length * 0.58);
+
+                        model.traverse((object) => {
+                            if (!object.isMesh) return;
+                            object.frustumCulled = false;
+                        });
+                        if (modelStatus) modelStatus.remove();
+                        updateCarFocus(focusedPart);
+                    },
+                    (event) => {
+                        if (!event.total) return;
+                        const progress = Math.round(event.loaded / event.total * 100);
+                        if (modelStatus) modelStatus.textContent = `กำลังโหลดโมเดลรถ 3D... ${progress}%`;
+                        const aeroModelStatus = document.getElementById('aero-model-status');
+                        if (aeroModelStatus) aeroModelStatus.textContent = `LOADING CAR MODEL... ${progress}%`;
+                    },
+                    (error) => {
+                        if (modelStatus) {
+                            modelStatus.textContent = window.location.protocol === 'file:'
+                                ? 'เปิดผ่าน Live Server เพื่อโหลดไฟล์ GLB'
+                                : 'โหลดโมเดลไม่สำเร็จ ตรวจไฟล์ 3D model/main.glb';
+                            modelStatus.classList.add('text-amber-300');
+                        }
+                        const aeroModelStatus = document.getElementById('aero-model-status');
+                        if (aeroModelStatus) aeroModelStatus.textContent = 'CAR MODEL UNAVAILABLE';
+                        console.error('Unable to load 3D model:', error);
+                    }
+                );
+                let focusedPart = window.currentSelectedCarPart || null;
+                let targetCameraPosition = new THREE.Vector3(4.8, 2.8, 6.3);
+                let targetCameraLookAt = new THREE.Vector3(0, 0.65, 0);
+                const currentCameraLookAt = targetCameraLookAt.clone();
+                const focusLight = new THREE.PointLight(0xff3342, 0, 4.5);
+                carScene.add(focusLight);
+
+                const updateCarFocus = (key) => {
+                    focusedPart = partViews[key] ? key : null;
+                    const view = focusedPart ? partViews[focusedPart] : null;
+                    const target = view ? view.target.clone() : new THREE.Vector3(0, 0.65, 0);
+                    const offset = view ? view.offset.clone() : new THREE.Vector3(4.8, 2.15, 6.3);
+                    const aspectScale = carCamera.aspect < 1.35 ? 1.35 / carCamera.aspect : 1;
+                    if (view) offset.multiplyScalar(Math.max(1, aspectScale * 0.72));
+                    else offset.multiplyScalar(Math.max(0.76, aspectScale * 0.58));
+                    const rotatedTarget = target.applyAxisAngle(new THREE.Vector3(0, 1, 0), displayCar.rotation.y);
+                    targetCameraLookAt.copy(rotatedTarget);
+                    targetCameraPosition.copy(rotatedTarget).add(offset);
+                    focusLight.position.copy(rotatedTarget).add(new THREE.Vector3(0.25, 1.1, 1.35));
+                    focusLight.intensity = focusedPart ? 8 : 0;
+                    document.querySelectorAll('#car-hotspots .car-part-btn').forEach((button) => {
+                        button.classList.toggle('ring-2', button.dataset.carPart === focusedPart);
+                        button.classList.toggle('ring-white', button.dataset.carPart === focusedPart);
+                        button.classList.toggle('scale-110', button.dataset.carPart === focusedPart);
+                    });
+                };
+                window.focusCarPart = updateCarFocus;
+                updateCarFocus(focusedPart);
+                carCamera.position.copy(targetCameraPosition);
+                currentCameraLookAt.copy(targetCameraLookAt);
+
+                const carRaycaster = new THREE.Raycaster();
+                const carPointer = new THREE.Vector2();
+                carRenderer.domElement.addEventListener('pointerup', (event) => {
+                    if (Math.abs(event.clientX - (carRenderer.domElement._downX ?? event.clientX)) > 6 || Math.abs(event.clientY - (carRenderer.domElement._downY ?? event.clientY)) > 6) return;
+                    const bounds = carRenderer.domElement.getBoundingClientRect();
+                    carPointer.x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
+                    carPointer.y = -((event.clientY - bounds.top) / bounds.height) * 2 + 1;
+                    carRaycaster.setFromCamera(carPointer, carCamera);
+                    const hits = carRaycaster.intersectObjects(Object.values(displayParts), true);
+                    if (hits.length && window.selectCarPart) {
+                        let nearestKey = null;
+                        let nearestDistance = Infinity;
+                        for (const [key, anchor] of Object.entries(hotspotAnchors)) {
+                            const worldAnchor = anchor.clone().applyMatrix4(displayCar.matrixWorld);
+                            const distance = worldAnchor.distanceTo(hits[0].point);
+                            if (distance < nearestDistance) {
+                                nearestKey = key;
+                                nearestDistance = distance;
+                            }
+                        }
+                        if (nearestKey) window.selectCarPart(nearestKey);
+                    }
+                });
+                carRenderer.domElement.addEventListener('pointerdown', (event) => {
+                    carRenderer.domElement._downX = event.clientX;
+                    carRenderer.domElement._downY = event.clientY;
+                });
+
+                const carResizeObserver = new ResizeObserver(() => {
+                    const width = carHost.clientWidth;
+                    const height = carHost.clientHeight;
+                    if (!width || !height) return;
+                    carCamera.aspect = width / height;
+                    carCamera.updateProjectionMatrix();
+                    carRenderer.setSize(width, height, false);
+                    updateCarFocus(focusedPart);
+                });
+                carResizeObserver.observe(carHost);
+
+                const updateHotspotPositions = () => {
+                    displayCar.updateMatrixWorld(true);
+                    for (const [key, anchor] of Object.entries(hotspotAnchors)) {
+                        const button = carHost.querySelector(`[data-car-part="${key}"]`);
+                        if (!button) continue;
+                        const position = anchor.clone().applyMatrix4(displayCar.matrixWorld).project(carCamera);
+                        const mobileOffsets = {
+                            'front-wing': [-12, -5],
+                            halo: [7, -7],
+                            sidepod: [-10, 12],
+                            engine: [8, -9],
+                            'rear-wing': [-10, -12]
+                        };
+                        const offset = carCamera.aspect < 1.35 ? mobileOffsets[key] : [0, 0];
+                        const x = (position.x * 0.5 + 0.5) * carHost.clientWidth + offset[0];
+                        const y = (-position.y * 0.5 + 0.5) * carHost.clientHeight + offset[1];
+                        const inView = position.z < 1 && x > 14 && x < carHost.clientWidth - 14 && y > 38 && y < carHost.clientHeight - 25;
+                        button.style.left = `${x}px`;
+                        button.style.top = `${y}px`;
+                        button.classList.toggle('opacity-0', !inView);
+                        button.style.pointerEvents = inView ? 'auto' : 'none';
+                    }
+                };
+
+                const rebuildFlow = (mode) => {
+                    while (flowGroup.children.length) {
+                        const object = flowGroup.children.pop();
+                        object.geometry?.dispose();
+                        if (Array.isArray(object.material)) object.material.forEach(material => material.dispose());
+                        else object.material?.dispose();
+                    }
+                    flowTracks.length = 0;
+                    const color = mode === 'overtake' ? 0xff8755 : mode === 'straight' ? 0x48c9ff : 0x57e1e8;
+                    const particleMaterial = new THREE.MeshBasicMaterial({ color });
+                    const isCorner = mode === 'corner';
+                    const bounds = aeroFlowBounds;
+                    const minX = bounds?.min.x ?? -2.2;
+                    const maxX = bounds?.max.x ?? 2.2;
+                    const minY = bounds?.min.y ?? 0.04;
+                    const height = bounds?.size.y ?? 0.89;
+                    const span = bounds?.size.z ?? 1.53;
+                    const frontWingY = minY + height * 0.17;
+                    const noseY = minY + height * 0.42;
+                    const cockpitY = minY + height * 0.91;
+                    const engineY = minY + height * 0.69;
+                    const rearWingY = minY + height * 0.48;
+                    const clearance = height * 0.11;
+
+                    for (let index = 0; index < 5; index++) {
+                        const lane = index - 2;
+                        const z = lane * span * 0.19;
+                        const outsideLift = Math.abs(lane) * height * 0.025;
+                        const curve = new THREE.CatmullRomCurve3([
+                            new THREE.Vector3(maxX + height * 0.5, frontWingY + clearance + outsideLift, z * 1.2),
+                            new THREE.Vector3(maxX - height * 0.1, frontWingY + clearance + outsideLift * 0.7, z),
+                            new THREE.Vector3(maxX * 0.4, noseY + clearance * 0.65 + outsideLift, z),
+                            new THREE.Vector3(0, cockpitY + clearance * 0.5 + outsideLift, z * 0.92),
+                            new THREE.Vector3(minX * 0.35, engineY + clearance * 0.6 + outsideLift, z),
+                            new THREE.Vector3(minX + height * 0.12, rearWingY + clearance + outsideLift * 0.7, z),
+                            new THREE.Vector3(minX - height * 0.5, rearWingY + clearance + outsideLift, z * 1.2)
+                        ]);
+                        const tube = new THREE.Mesh(
+                            new THREE.TubeGeometry(curve, 72, 0.009, 5, false),
+                            new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.28 })
+                        );
+                        flowGroup.add(tube);
+                        for (let particle = 0; particle < 2; particle++) {
+                            const bead = new THREE.Mesh(particleGeometry, particleMaterial);
+                            bead.scale.set(1.8, 0.68, 0.68);
+                            flowGroup.add(bead);
+                            flowTracks.push({ curve, bead, offset: (particle / 2 + index * 0.173) % 1 });
+                        }
+                    }
+                    flowSpeed = mode === 'overtake' ? 0.39 : mode === 'straight' ? 0.26 : 0.15;
+                    setWingAnimationMode(mode);
+                    boostCore.visible = mode === 'overtake';
+                    const speedLabel = document.getElementById('airflow-speed');
+                    if (speedLabel) {
+                        speedLabel.textContent = mode === 'overtake' ? 'MAX FLOW / 350 kW' : mode === 'straight' ? 'FAST FLOW / LOW DRAG' : 'HIGH DOWNFORCE';
+                        speedLabel.className = mode === 'overtake' ? 'text-orange-300' : 'text-cyan-200';
+                    }
+                };
+
+                window.setAeroVisualizationMode = (mode) => {
+                    if (mode === 'corner' || mode === 'straight' || mode === 'overtake') rebuildFlow(mode);
+                };
+                rebuildFlow(window.current2026Mode || 'corner');
+
+                const resizeRenderer = () => {
+                    const width = aeroHost.clientWidth;
+                    const height = aeroHost.clientHeight;
+                    if (!width || !height) return;
+                    camera.aspect = width / height;
+                    camera.position.set(width / height < 1.2 ? 6.3 : 4.2, width / height < 1.2 ? 3.3 : 2.5, width / height < 1.2 ? 8.0 : 4.8);
+                    camera.lookAt(0, 0.55, 0);
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(width, height, false);
+                };
+                const resizeObserver = new ResizeObserver(resizeRenderer);
+                resizeObserver.observe(aeroHost);
+                resizeRenderer();
+
+                const clock = new THREE.Clock();
+                const animate = (now) => {
+                    const seconds = now * 0.001;
+                    const delta = Math.min(clock.getDelta(), 0.05);
+                    for (const { mixer } of wingAnimationSets) mixer.update(delta);
+                    aeroModelRoot.rotation.y = Math.sin(seconds * 0.38) * 0.035;
+                    for (const track of flowTracks) {
+                        const progress = reduceMotion ? track.offset : (track.offset + seconds * flowSpeed) % 1;
+                        track.bead.position.copy(track.curve.getPointAt(progress));
+                    }
+                    boostCore.scale.x = 1.7 + Math.sin(seconds * 12) * 0.3;
+                    renderer.render(scene, camera);
+                    displayCar.rotation.y = -0.08 + Math.sin(seconds * 0.3) * 0.018;
+                    const focusTarget = focusedPart ? partViews[focusedPart].target : new THREE.Vector3(0, 0.65, 0);
+                    const focusOffset = focusedPart ? partViews[focusedPart].offset : new THREE.Vector3(4.8, 2.15, 6.3);
+                    const aspectScale = carCamera.aspect < 1.35 ? 1.35 / carCamera.aspect : 1;
+                    const zoomScale = focusedPart ? Math.max(1, aspectScale * 0.72) : Math.max(0.76, aspectScale * 0.58);
+                    const rotatedFocus = focusTarget.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), displayCar.rotation.y);
+                    const desiredPosition = rotatedFocus.clone().add(focusOffset.clone().multiplyScalar(zoomScale));
+                    targetCameraPosition.lerp(desiredPosition, 0.08);
+                    targetCameraLookAt.lerp(rotatedFocus, 0.08);
+                    carCamera.position.lerp(targetCameraPosition, 0.09);
+                    currentCameraLookAt.lerp(targetCameraLookAt, 0.09);
+                    carCamera.lookAt(currentCameraLookAt);
+                    updateHotspotPositions();
+                    carRenderer.render(carScene, carCamera);
+                    if (!reduceMotion) requestAnimationFrame(animate);
+                };
+                if (reduceMotion) animate(0);
+                else requestAnimationFrame(animate);
+            } catch (error) {
+                const fallback = document.createElement('div');
+                fallback.className = 'absolute inset-0 flex items-center justify-center text-xs text-zinc-500';
+                fallback.textContent = '3D aero visualization is unavailable';
+                aeroHost.appendChild(fallback);
+                console.error('Unable to initialize the 3D aero visualization:', error);
+            }
+        }
+    </script>
+</body>
+</html>
