@@ -458,234 +458,289 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="teams-grid">
                 
                 <!-- Red Bull Racing -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-blue-600 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: RED BULL FORD</span>
-                            <h3 class="text-xl font-bold text-white">Red Bull Racing</h3>
+                <div onclick="openTeam3D('redbull')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-blue-600 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: RED BULL FORD</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Red Bull Racing</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-blue-700 ring-2 ring-yellow-400"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-blue-700 ring-2 ring-yellow-400"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Max_Verstappen" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Max Verstappen</a> <img src="https://flagcdn.com/w40/nl.png" alt="ธงชาติเนเธอร์แลนด์" title="เนเธอร์แลนด์" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#3</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Isack_Hadjar" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Isack Hadjar</a> <img src="https://flagcdn.com/w40/fr.png" alt="ธงชาติฝรั่งเศส" title="ฝรั่งเศส" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#6</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Max_Verstappen" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Max Verstappen</a> <img src="https://flagcdn.com/w40/nl.png" alt="ธงชาติเนเธอร์แลนด์" title="เนเธอร์แลนด์" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#3</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Isack_Hadjar" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Isack Hadjar</a> <img src="https://flagcdn.com/w40/fr.png" alt="ธงชาติฝรั่งเศส" title="ฝรั่งเศส" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#6</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('redbull'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- Ferrari -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-red-600 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: FERRARI</span>
-                            <h3 class="text-xl font-bold text-white">Scuderia Ferrari</h3>
+                <div onclick="openTeam3D('ferrari')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-red-600 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: FERRARI</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-red-400 transition-colors">Scuderia Ferrari</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-red-600 ring-2 ring-yellow-400"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-red-600 ring-2 ring-yellow-400"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Charles_Leclerc" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Charles Leclerc</a> <img src="https://flagcdn.com/w40/mc.png" alt="ธงชาติโมนาโก" title="โมนาโก" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#16</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Lewis_Hamilton" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Lewis Hamilton</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#44</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Charles_Leclerc" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Charles Leclerc</a> <img src="https://flagcdn.com/w40/mc.png" alt="ธงชาติโมนาโก" title="โมนาโก" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#16</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Lewis_Hamilton" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Lewis Hamilton</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#44</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('ferrari'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- McLaren -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-orange-500 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
-                            <h3 class="text-xl font-bold text-white">McLaren F1 Team</h3>
+                <div onclick="openTeam3D('mclaren')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-orange-500 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">McLaren F1 Team</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-orange-500 ring-2 ring-zinc-900"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-orange-500 ring-2 ring-zinc-900"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Lando_Norris" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Lando Norris</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#1</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Oscar_Piastri" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Oscar Piastri</a> <img src="https://flagcdn.com/w40/au.png" alt="ธงชาติออสเตรเลีย" title="ออสเตรเลีย" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#81</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Lando_Norris" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Lando Norris</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#1</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Oscar_Piastri" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Oscar Piastri</a> <img src="https://flagcdn.com/w40/au.png" alt="ธงชาติออสเตรเลีย" title="ออสเตรเลีย" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#81</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('mclaren'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- Mercedes -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-emerald-400 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
-                            <h3 class="text-xl font-bold text-white">Mercedes-AMG F1</h3>
+                <div onclick="openTeam3D('mercedes')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-emerald-400 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-teal-300 transition-colors">Mercedes-AMG F1</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-teal-400 ring-2 ring-zinc-200"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-teal-400 ring-2 ring-zinc-200"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/George_Russell_(racing_driver)" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">George Russell</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#63</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Andrea_Kimi_Antonelli" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Kimi Antonelli</a> <img src="https://flagcdn.com/w40/it.png" alt="ธงชาติอิตาลี" title="อิตาลี" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#12</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/George_Russell_(racing_driver)" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">George Russell</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#63</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Andrea_Kimi_Antonelli" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Kimi Antonelli</a> <img src="https://flagcdn.com/w40/it.png" alt="ธงชาติอิตาลี" title="อิตาลี" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#12</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('mercedes'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- Aston Martin -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-emerald-700 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: HONDA</span>
-                            <h3 class="text-xl font-bold text-white">Aston Martin Aramco</h3>
+                <div onclick="openTeam3D('astonmartin')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-emerald-700 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: HONDA</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">Aston Martin Aramco</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-emerald-800 ring-2 ring-lime-400"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-emerald-800 ring-2 ring-lime-400"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Fernando_Alonso" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Fernando Alonso</a> <img src="https://flagcdn.com/w40/es.png" alt="ธงชาติสเปน" title="สเปน" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#14</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Lance_Stroll" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Lance Stroll</a> <img src="https://flagcdn.com/w40/ca.png" alt="ธงชาติแคนาดา" title="แคนาดา" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#18</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Fernando_Alonso" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Fernando Alonso</a> <img src="https://flagcdn.com/w40/es.png" alt="ธงชาติสเปน" title="สเปน" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#14</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Lance_Stroll" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Lance Stroll</a> <img src="https://flagcdn.com/w40/ca.png" alt="ธงชาติแคนาดา" title="แคนาดา" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#18</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('astonmartin'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- Williams -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-blue-400 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
-                            <h3 class="text-xl font-bold text-white">Williams Racing</h3>
+                <div onclick="openTeam3D('williams')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-blue-400 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">Williams Racing</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-blue-500 ring-2 ring-cyan-300"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-blue-500 ring-2 ring-cyan-300"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Alexander_Albon" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Alexander Albon</a> <img src="https://flagcdn.com/w40/th.png" alt="ธงชาติไทย" title="ไทย" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#23</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Carlos_Sainz_Jr." target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Carlos Sainz</a> <img src="https://flagcdn.com/w40/es.png" alt="ธงชาติสเปน" title="สเปน" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#55</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Alexander_Albon" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Alexander Albon</a> <img src="https://flagcdn.com/w40/th.png" alt="ธงชาติไทย" title="ไทย" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#23</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Carlos_Sainz_Jr." target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Carlos Sainz</a> <img src="https://flagcdn.com/w40/es.png" alt="ธงชาติสเปน" title="สเปน" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#55</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('williams'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- Racing Bulls -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-sky-400 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: RED BULL FORD</span>
-                            <h3 class="text-xl font-bold text-white">Racing Bulls</h3>
+                <div onclick="openTeam3D('racingbulls')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-sky-400 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: RED BULL FORD</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-sky-300 transition-colors">Racing Bulls</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-sky-400 ring-2 ring-zinc-200"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-sky-400 ring-2 ring-zinc-200"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Liam_Lawson" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Liam Lawson</a> <img src="https://flagcdn.com/w40/nz.png" alt="ธงชาตินิวซีแลนด์" title="นิวซีแลนด์" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#30</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Arvid_Lindblad" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Arvid Lindblad</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#41</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Liam_Lawson" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Liam Lawson</a> <img src="https://flagcdn.com/w40/nz.png" alt="ธงชาตินิวซีแลนด์" title="นิวซีแลนด์" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#30</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Arvid_Lindblad" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Arvid Lindblad</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#41</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('racingbulls'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- Haas -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-red-500 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: FERRARI</span>
-                            <h3 class="text-xl font-bold text-white">Haas F1 Team</h3>
+                <div onclick="openTeam3D('haas')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-red-500 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: FERRARI</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-red-300 transition-colors">Haas F1 Team</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-zinc-200 ring-2 ring-red-500"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-zinc-200 ring-2 ring-red-500"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Esteban_Ocon" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Esteban Ocon</a> <img src="https://flagcdn.com/w40/fr.png" alt="ธงชาติฝรั่งเศส" title="ฝรั่งเศส" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#31</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Oliver_Bearman" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Oliver Bearman</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#87</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Esteban_Ocon" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Esteban Ocon</a> <img src="https://flagcdn.com/w40/fr.png" alt="ธงชาติฝรั่งเศส" title="ฝรั่งเศส" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#31</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Oliver_Bearman" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Oliver Bearman</a> <img src="https://flagcdn.com/w40/gb.png" alt="ธงชาติสหราชอาณาจักร" title="สหราชอาณาจักร" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#87</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('haas'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- Alpine -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-pink-400 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
-                            <h3 class="text-xl font-bold text-white">BWT Alpine F1 Team</h3>
+                <div onclick="openTeam3D('alpine')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-pink-400 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: MERCEDES</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-pink-300 transition-colors">BWT Alpine F1 Team</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-pink-400 ring-2 ring-blue-400"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-pink-400 ring-2 ring-blue-400"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Pierre_Gasly" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Pierre Gasly</a> <img src="https://flagcdn.com/w40/fr.png" alt="ธงชาติฝรั่งเศส" title="ฝรั่งเศส" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#10</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Franco_Colapinto" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Franco Colapinto</a> <img src="https://flagcdn.com/w40/ar.png" alt="ธงชาติอาร์เจนตินา" title="อาร์เจนตินา" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#43</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Pierre_Gasly" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Pierre Gasly</a> <img src="https://flagcdn.com/w40/fr.png" alt="ธงชาติฝรั่งเศส" title="ฝรั่งเศส" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#10</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Franco_Colapinto" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Franco Colapinto</a> <img src="https://flagcdn.com/w40/ar.png" alt="ธงชาติอาร์เจนตินา" title="อาร์เจนตินา" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#43</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('alpine'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- Audi -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-red-400 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: AUDI</span>
-                            <h3 class="text-xl font-bold text-white">Audi Revolut F1 Team</h3>
+                <div onclick="openTeam3D('audi')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-red-400 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: AUDI</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-red-300 transition-colors">Audi Revolut F1 Team</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-red-500 ring-2 ring-zinc-300"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-red-500 ring-2 ring-zinc-300"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Nico_H%C3%BClkenberg" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Nico Hülkenberg</a> <img src="https://flagcdn.com/w40/de.png" alt="ธงชาติเยอรมนี" title="เยอรมนี" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#27</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Gabriel_Bortoleto" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Gabriel Bortoleto</a> <img src="https://flagcdn.com/w40/br.png" alt="ธงชาติบราซิล" title="บราซิล" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#5</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Nico_H%C3%BClkenberg" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Nico Hülkenberg</a> <img src="https://flagcdn.com/w40/de.png" alt="ธงชาติเยอรมนี" title="เยอรมนี" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#27</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Gabriel_Bortoleto" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Gabriel Bortoleto</a> <img src="https://flagcdn.com/w40/br.png" alt="ธงชาติบราซิล" title="บราซิล" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#5</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('audi'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
                 <!-- Cadillac -->
-                <div class="team-card bg-f1card rounded-2xl border border-f1border p-5 hover:border-blue-300 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: FERRARI</span>
-                            <h3 class="text-xl font-bold text-white">Cadillac Formula 1 Team</h3>
+                <div onclick="openTeam3D('cadillac')" class="team-card cursor-pointer bg-f1card rounded-2xl border border-f1border p-5 hover:border-blue-300 transition-all flex flex-col justify-between group hover:scale-[1.01]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs text-zinc-400 font-semibold">POWER UNIT: FERRARI</span>
+                                <h3 class="text-xl font-bold text-white group-hover:text-blue-200 transition-colors">Cadillac Formula 1 Team</h3>
+                            </div>
+                            <span class="w-4 h-4 rounded-full bg-blue-300 ring-2 ring-zinc-200"></span>
                         </div>
-                        <span class="w-4 h-4 rounded-full bg-blue-300 ring-2 ring-zinc-200"></span>
+                        <div class="space-y-2 text-sm text-zinc-300">
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Sergio_P%C3%A9rez" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Sergio Pérez</a> <img src="https://flagcdn.com/w40/mx.png" alt="ธงชาติเม็กซิโก" title="เม็กซิโก" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#11</span>
+                            </div>
+                            <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
+                                <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Valtteri_Bottas" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Valtteri Bottas</a> <img src="https://flagcdn.com/w40/fi.png" alt="ธงชาติฟินแลนด์" title="ฟินแลนด์" class="inline-block w-5 h-auto ml-1 align-middle"></span>
+                                <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#77</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-2 text-sm text-zinc-300">
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Sergio_P%C3%A9rez" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Sergio Pérez</a> <img src="https://flagcdn.com/w40/mx.png" alt="ธงชาติเม็กซิโก" title="เม็กซิโก" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#11</span>
-                        </div>
-                        <div class="p-2 bg-zinc-900/80 rounded-lg flex justify-between">
-                            <span><i class="fa-solid fa-user text-f1red mr-2"></i><a href="https://en.wikipedia.org/wiki/Valtteri_Bottas" target="_blank" rel="noopener noreferrer" class="hover:text-f1red hover:underline underline-offset-2 transition-colors">Valtteri Bottas</a> <img src="https://flagcdn.com/w40/fi.png" alt="ธงชาติฟินแลนด์" title="ฟินแลนด์" class="inline-block w-5 h-auto ml-1 align-middle"></span>
-                            <span class="text-xs bg-zinc-800 px-2 py-0.5 rounded font-mono text-zinc-400">#77</span>
-                        </div>
-                    </div>
+                    <button type="button" onclick="openTeam3D('cadillac'); event.stopPropagation();" class="w-full mt-4 py-2 px-3 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-f1red hover:bg-f1red text-white text-xs font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cube text-f1red group-hover:text-white transition-colors"></i> ดูโมเดล 3D ของทีม
+                    </button>
                 </div>
 
             </div>
@@ -764,6 +819,45 @@
         </section>
 
     </main>
+
+    <!-- TEAM 3D MODEL POPUP MODAL -->
+    <div id="team-3d-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300">
+        <div class="bg-f1card border border-f1border rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl flex flex-col max-h-[92vh] glow-red-sm">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-f1border flex items-center justify-between bg-f1dark">
+                <div class="flex items-center gap-3">
+                    <span id="modal-team-badge" class="w-4 h-4 rounded-full ring-2"></span>
+                    <div>
+                        <h3 id="modal-team-title" class="text-xl font-bold text-white">Team Name</h3>
+                        <p id="modal-team-pu" class="text-xs text-zinc-400">POWER UNIT</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeTeam3DModal()" class="w-9 h-9 rounded-xl bg-zinc-800 text-zinc-400 hover:text-white hover:bg-f1red transition flex items-center justify-center">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Viewport (3D Canvas) -->
+            <div id="modal-3d-viewport" class="relative flex-1 min-h-[360px] sm:min-h-[460px] bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 overflow-hidden cursor-grab active:cursor-grabbing select-none">
+                <div class="absolute top-3 left-3 z-10 text-[10px] font-mono text-zinc-300 bg-black/70 px-3 py-1.5 rounded-md border border-zinc-800 pointer-events-none flex items-center gap-1.5 shadow">
+                    <i class="fa-solid fa-arrows-spin text-f1red"></i> ลากเมาส์/นิ้ว เพื่อหมุน 360° | Scroll เพื่อย่อ/ขยาย
+                </div>
+                <div id="modal-3d-loading" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/80 backdrop-blur-sm text-cyan-300 text-xs font-mono gap-2">
+                    <i class="fa-solid fa-circle-notch fa-spin text-2xl text-f1red"></i>
+                    <span>กำลังโหลดโมเดล 3D...</span>
+                </div>
+                <div id="modal-drivers-list" class="absolute bottom-4 left-4 right-4 z-10 flex flex-wrap gap-2 pointer-events-none">
+                    <!-- Dynamic Driver Pills -->
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-3 border-t border-f1border bg-f1dark flex justify-between items-center text-xs text-zinc-400">
+                <span><i class="fa-solid fa-cube text-f1red mr-1.5"></i> 2026 Season Livery 3D Model</span>
+                <button type="button" onclick="closeTeam3DModal()" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white font-bold rounded-lg transition">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-f1dark border-t border-f1border py-8 text-center text-xs text-zinc-500">
@@ -1634,6 +1728,412 @@
                 console.error('Unable to initialize the 3D aero visualization:', error);
             }
         }
+
+        // 5. TEAM 3D MODEL POPUP MODAL LOGIC
+        const team3DData = {
+            redbull: {
+                title: "Red Bull Racing",
+                pu: "POWER UNIT: RED BULL FORD",
+                color: 0x141f3d,
+                accentColor: 0xe10600,
+                ringClass: "ring-yellow-400 bg-blue-700",
+                drivers: [{ name: "Max Verstappen", no: "#3" }, { name: "Isack Hadjar", no: "#6" }],
+                modelPath: "redbull2026.glb"
+            },
+            ferrari: {
+                title: "Scuderia Ferrari",
+                pu: "POWER UNIT: FERRARI",
+                color: 0xc91e27,
+                accentColor: 0xffd700,
+                ringClass: "ring-yellow-400 bg-red-600",
+                drivers: [{ name: "Charles Leclerc", no: "#16" }, { name: "Lewis Hamilton", no: "#44" }],
+                modelPath: "ferrari2026.glb"
+            },
+            mclaren: {
+                title: "McLaren F1 Team",
+                pu: "POWER UNIT: MERCEDES",
+                color: 0xff8000,
+                accentColor: 0x101015,
+                ringClass: "ring-zinc-900 bg-orange-500",
+                drivers: [{ name: "Lando Norris", no: "#1" }, { name: "Oscar Piastri", no: "#81" }],
+                modelPath: "mclaren2026.glb"
+            },
+            mercedes: {
+                title: "Mercedes-AMG F1",
+                pu: "POWER UNIT: MERCEDES",
+                color: 0x00d2be,
+                accentColor: 0xe4e4e7,
+                ringClass: "ring-zinc-200 bg-teal-400",
+                drivers: [{ name: "George Russell", no: "#63" }, { name: "Kimi Antonelli", no: "#12" }],
+                modelPath: "mercedes2026.glb"
+            },
+            astonmartin: {
+                title: "Aston Martin Aramco",
+                pu: "POWER UNIT: HONDA",
+                color: 0x005a40,
+                accentColor: 0xcedc00,
+                ringClass: "ring-lime-400 bg-emerald-800",
+                drivers: [{ name: "Fernando Alonso", no: "#14" }, { name: "Lance Stroll", no: "#18" }],
+                modelPath: "astonmartin26.glb"
+            },
+            williams: {
+                title: "Williams Racing",
+                pu: "POWER UNIT: MERCEDES",
+                color: 0x00a0de,
+                accentColor: 0x041e42,
+                ringClass: "ring-cyan-300 bg-blue-500",
+                drivers: [{ name: "Alexander Albon", no: "#23" }, { name: "Carlos Sainz", no: "#55" }],
+                modelPath: "williams2026.glb"
+            },
+            racingbulls: {
+                title: "Racing Bulls",
+                pu: "POWER UNIT: RED BULL FORD",
+                color: 0x6699ff,
+                accentColor: 0xffffff,
+                ringClass: "ring-zinc-200 bg-sky-400",
+                drivers: [{ name: "Liam Lawson", no: "#30" }, { name: "Arvid Lindblad", no: "#41" }]
+            },
+            haas: {
+                title: "Haas F1 Team",
+                pu: "POWER UNIT: FERRARI",
+                color: 0xe2e8f0,
+                accentColor: 0xe10600,
+                ringClass: "ring-red-500 bg-zinc-200",
+                drivers: [{ name: "Esteban Ocon", no: "#31" }, { name: "Oliver Bearman", no: "#87" }],
+                modelPath: "haas2026.glb"
+            },
+            alpine: {
+                title: "BWT Alpine F1 Team",
+                pu: "POWER UNIT: MERCEDES",
+                color: 0xff87b2,
+                accentColor: 0x0072bb,
+                ringClass: "ring-blue-400 bg-pink-400",
+                drivers: [{ name: "Pierre Gasly", no: "#10" }, { name: "Franco Colapinto", no: "#43" }],
+                modelPath: "bwtalpine2026.glb"
+            },
+            audi: {
+                title: "Audi Revolut F1 Team",
+                pu: "POWER UNIT: AUDI",
+                color: 0xe10600,
+                accentColor: 0x222222,
+                ringClass: "ring-zinc-300 bg-red-500",
+                drivers: [{ name: "Nico Hülkenberg", no: "#27" }, { name: "Gabriel Bortoleto", no: "#5" }],
+                modelPath: "audi2026.glb"
+            },
+            cadillac: {
+                title: "Cadillac Formula 1 Team",
+                pu: "POWER UNIT: FERRARI",
+                color: 0x4a7cbf,
+                accentColor: 0xe2e8f0,
+                ringClass: "ring-zinc-200 bg-blue-300",
+                drivers: [{ name: "Sergio Pérez", no: "#11" }, { name: "Valtteri Bottas", no: "#77" }],
+                modelPath: "cadillac2026.glb"
+            }
+        };
+
+        let modalScene, modalCamera, modalRenderer, modalCarGroup, modalAnimId;
+        let isPointerDown = false, pointerX = 0, pointerY = 0;
+        let targetRotX = 0.2, targetRotY = 0.5, currentRotX = 0.2, currentRotY = 0.5;
+        let targetZoom = 5.2, currentZoom = 5.2;
+        let loadedGLBModel = null;
+
+        async function initTeamModal3D() {
+            const viewport = document.getElementById('modal-3d-viewport');
+            if (!viewport || modalRenderer) return;
+
+            const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js');
+            const { GLTFLoader } = await import('https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/loaders/GLTFLoader.js');
+
+            modalScene = new THREE.Scene();
+            modalCamera = new THREE.PerspectiveCamera(35, viewport.clientWidth / viewport.clientHeight, 0.1, 50);
+            modalCamera.position.set(0, 1.2, currentZoom);
+
+            modalRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
+            modalRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+            modalRenderer.outputColorSpace = THREE.SRGBColorSpace;
+            modalRenderer.setSize(viewport.clientWidth, viewport.clientHeight);
+            viewport.appendChild(modalRenderer.domElement);
+
+            // Lighting
+            modalScene.add(new THREE.HemisphereLight(0xdff0ff, 0x111118, 2.5));
+            const mainLight = new THREE.DirectionalLight(0xffffff, 3.5);
+            mainLight.position.set(4, 8, 5);
+            modalScene.add(mainLight);
+            const rimLight = new THREE.PointLight(0x00e5ff, 15, 12);
+            rimLight.position.set(-4, 3, -3);
+            modalScene.add(rimLight);
+
+            // Floor Grid
+            const floor = new THREE.Mesh(
+                new THREE.PlaneGeometry(24, 24),
+                new THREE.MeshStandardMaterial({ color: 0x0b0e14, metalness: 0.3, roughness: 0.8 })
+            );
+            floor.rotation.x = -Math.PI / 2;
+            floor.position.y = -0.01;
+            modalScene.add(floor);
+
+            const grid = new THREE.GridHelper(18, 36, 0xe10600, 0x222230);
+            grid.position.y = 0;
+            grid.material.transparent = true;
+            grid.material.opacity = 0.3;
+            modalScene.add(grid);
+
+            modalCarGroup = new THREE.Group();
+            modalScene.add(modalCarGroup);
+
+            // Try loading GLTF model or fallback to procedural model
+            const loader = new GLTFLoader();
+            loader.load('./3D%20model/carv2.glb', (gltf) => {
+                const model = gltf.scene;
+                let bounds = new THREE.Box3().setFromObject(model);
+                let size = bounds.getSize(new THREE.Vector3());
+                if (size.z > size.x) model.rotation.y = Math.PI / 2;
+                bounds.setFromObject(model);
+                size = bounds.getSize(new THREE.Vector3());
+                const modelScale = 4.2 / Math.max(size.x, size.y, size.z);
+                model.scale.setScalar(modelScale);
+                model.updateMatrixWorld(true);
+                bounds.setFromObject(model);
+                const center = bounds.getCenter(new THREE.Vector3());
+                model.position.set(-center.x, -bounds.min.y, -center.z);
+
+                loadedGLBModel = model;
+                const loadingElem = document.getElementById('modal-3d-loading');
+                if (loadingElem) loadingElem.style.display = 'none';
+            }, undefined, (err) => {
+                console.warn('GLB load error for modal, using procedural mesh', err);
+                const loadingElem = document.getElementById('modal-3d-loading');
+                if (loadingElem) loadingElem.style.display = 'none';
+            });
+
+            // Pointer Orbit Controls
+            viewport.addEventListener('pointerdown', (e) => {
+                isPointerDown = true;
+                pointerX = e.clientX;
+                pointerY = e.clientY;
+            });
+
+            window.addEventListener('pointermove', (e) => {
+                if (!isPointerDown) return;
+                const dx = e.clientX - pointerX;
+                const dy = e.clientY - pointerY;
+                pointerX = e.clientX;
+                pointerY = e.clientY;
+
+                targetRotY += dx * 0.008;
+                targetRotX = Math.max(-0.4, Math.min(0.8, targetRotX + dy * 0.008));
+            });
+
+            window.addEventListener('pointerup', () => { isPointerDown = false; });
+
+            viewport.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                targetZoom = Math.max(2.5, Math.min(8.5, targetZoom + e.deltaY * 0.004));
+            }, { passive: false });
+
+            const resizeObserver = new ResizeObserver(() => {
+                if (!modalRenderer || !modalCamera) return;
+                const w = viewport.clientWidth;
+                const h = viewport.clientHeight;
+                modalCamera.aspect = w / h;
+                modalCamera.updateProjectionMatrix();
+                modalRenderer.setSize(w, h, false);
+            });
+            resizeObserver.observe(viewport);
+
+            function animateModal() {
+                modalAnimId = requestAnimationFrame(animateModal);
+
+                currentRotX += (targetRotX - currentRotX) * 0.08;
+                currentRotY += (targetRotY - currentRotY) * 0.08;
+                currentZoom += (targetZoom - currentZoom) * 0.08;
+
+                if (!isPointerDown) {
+                    targetRotY += 0.002;
+                }
+
+                if (modalCarGroup) {
+                    modalCarGroup.rotation.x = currentRotX;
+                    modalCarGroup.rotation.y = currentRotY;
+                }
+
+                modalCamera.position.z = currentZoom;
+                modalCamera.lookAt(0, 0.4, 0);
+
+                modalRenderer.render(modalScene, modalCamera);
+            }
+            animateModal();
+        }
+
+        function createProceduralCarMesh(teamKey) {
+            const THREE = window.THREE_MODULE;
+            if (!THREE) return new THREE.Group();
+
+            const info = team3DData[teamKey] || team3DData.redbull;
+            const carGroup = new THREE.Group();
+
+            const bodyMat = new THREE.MeshStandardMaterial({ color: info.color, metalness: 0.6, roughness: 0.3 });
+            const accentMat = new THREE.MeshStandardMaterial({ color: info.accentColor, metalness: 0.5, roughness: 0.3 });
+            const carbonMat = new THREE.MeshStandardMaterial({ color: 0x15151b, metalness: 0.7, roughness: 0.3 });
+            const rubberMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0d, roughness: 0.9 });
+
+            // Main chassis
+            const chassis = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.35, 0.85), bodyMat);
+            chassis.position.y = 0.35;
+            carGroup.add(chassis);
+
+            // Nose
+            const nose = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.3, 1.1, 8), bodyMat);
+            nose.rotation.z = -Math.PI / 2;
+            nose.position.set(1.8, 0.35, 0);
+            carGroup.add(nose);
+
+            // Sidepods
+            for (let side of [-1, 1]) {
+                const sp = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.3, 0.35), bodyMat);
+                sp.position.set(0.1, 0.4, side * 0.52);
+                carGroup.add(sp);
+            }
+
+            // Front wing
+            const fw = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.05, 1.7), accentMat);
+            fw.position.set(2.2, 0.22, 0);
+            carGroup.add(fw);
+
+            // Rear wing
+            const rw = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.06, 1.5), accentMat);
+            rw.position.set(-1.8, 0.85, 0);
+            carGroup.add(rw);
+
+            const rwPillar1 = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.4, 0.05), carbonMat);
+            rwPillar1.position.set(-1.8, 0.62, 0.2);
+            carGroup.add(rwPillar1);
+            const rwPillar2 = rwPillar1.clone();
+            rwPillar2.position.z = -0.2;
+            carGroup.add(rwPillar2);
+
+            // Wheels
+            for (let x of [-1.1, 1.1]) {
+                for (let side of [-1, 1]) {
+                    const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 0.25, 24), rubberMat);
+                    wheel.rotation.x = Math.PI / 2;
+                    wheel.position.set(x, 0.35, side * 0.7);
+                    carGroup.add(wheel);
+
+                    const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.26, 16), accentMat);
+                    rim.rotation.x = Math.PI / 2;
+                    rim.position.set(x, 0.35, side * 0.7);
+                    carGroup.add(rim);
+                }
+            }
+
+            return carGroup;
+        }
+
+        async function openTeam3D(teamKey) {
+            const info = team3DData[teamKey];
+            if (!info) return;
+
+            document.getElementById('modal-team-title').innerText = info.title;
+            document.getElementById('modal-team-pu').innerText = info.pu;
+            
+            const badge = document.getElementById('modal-team-badge');
+            badge.className = `w-4 h-4 rounded-full ring-2 ${info.ringClass}`;
+
+            const driversList = document.getElementById('modal-drivers-list');
+            driversList.innerHTML = info.drivers.map(d => `
+                <span class="px-3 py-1 bg-black/80 border border-zinc-700 rounded-full text-xs font-bold text-white flex items-center gap-1.5 shadow backdrop-blur">
+                    <i class="fa-solid fa-helmet-safety text-f1red"></i> ${d.name} <span class="text-zinc-400 font-mono">${d.no}</span>
+                </span>
+            `).join('');
+
+            const modal = document.getElementById('team-3d-modal');
+            modal.classList.remove('hidden');
+
+            const loadingElem = document.getElementById('modal-3d-loading');
+            if (loadingElem) loadingElem.style.display = 'flex';
+
+            await initTeamModal3D();
+
+            while (modalCarGroup.children.length) {
+                const child = modalCarGroup.children.pop();
+                if (child.geometry) child.geometry.dispose();
+            }
+
+            const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js');
+
+            const renderDefaultModel = () => {
+                if (loadedGLBModel) {
+                    const carModel = loadedGLBModel.clone(true);
+                    const teamMat = new THREE.MeshStandardMaterial({
+                        color: info.color,
+                        metalness: 0.5,
+                        roughness: 0.35
+                    });
+                    carModel.traverse((child) => {
+                        if (child.isMesh) {
+                            if (!child.name.toLowerCase().includes('tire') && !child.name.toLowerCase().includes('wheel') && !child.name.toLowerCase().includes('carbon')) {
+                                child.material = teamMat;
+                            }
+                        }
+                    });
+                    modalCarGroup.add(carModel);
+                } else {
+                    window.THREE_MODULE = THREE;
+                    const pCar = createProceduralCarMesh(teamKey);
+                    modalCarGroup.add(pCar);
+                }
+                if (loadingElem) loadingElem.style.display = 'none';
+            };
+
+            if (info.modelPath) {
+                const { GLTFLoader } = await import('https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/loaders/GLTFLoader.js');
+                const loader = new GLTFLoader();
+                
+                const tryLoadPath = (path, fallbackPath) => {
+                    loader.load(path, (gltf) => {
+                        const carModel = gltf.scene;
+                        let bounds = new THREE.Box3().setFromObject(carModel);
+                        let size = bounds.getSize(new THREE.Vector3());
+                        if (size.z > size.x) carModel.rotation.y = Math.PI / 2;
+                        bounds.setFromObject(carModel);
+                        size = bounds.getSize(new THREE.Vector3());
+                        const modelScale = 4.2 / Math.max(size.x, size.y, size.z);
+                        carModel.scale.setScalar(modelScale);
+                        carModel.updateMatrixWorld(true);
+                        bounds.setFromObject(carModel);
+                        const center = bounds.getCenter(new THREE.Vector3());
+                        carModel.position.set(-center.x, -bounds.min.y, -center.z);
+
+                        modalCarGroup.add(carModel);
+                        if (loadingElem) loadingElem.style.display = 'none';
+                    }, undefined, (err) => {
+                        if (fallbackPath) {
+                            tryLoadPath(fallbackPath, null);
+                        } else {
+                            console.warn(`Could not load custom model ${info.modelPath}, rendering default model.`, err);
+                            renderDefaultModel();
+                        }
+                    });
+                };
+
+                tryLoadPath(info.modelPath, `./3D%20model/${info.modelPath}`);
+            } else {
+                renderDefaultModel();
+            }
+
+            targetRotX = 0.2;
+            targetRotY = 0.5;
+            targetZoom = 5.2;
+        }
+
+        function closeTeam3DModal() {
+            const modal = document.getElementById('team-3d-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        window.openTeam3D = openTeam3D;
+        window.closeTeam3DModal = closeTeam3DModal;
     </script>
 </body>
 </html>
